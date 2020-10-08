@@ -21,7 +21,7 @@ public class VisaoMouse : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * sensibilidadeMouse * Time.deltaTime;
 
         xRotacao -= mouseY;
-        xRotacao = Mathf.Clamp(xRotacao, -90f, 50f);
+        xRotacao = Mathf.Clamp(xRotacao, -20f, 20f);
 
         transform.localRotation = Quaternion.Euler(xRotacao, 0f, 0f);
         corpoPlayer.Rotate(Vector3.up * mouseX);

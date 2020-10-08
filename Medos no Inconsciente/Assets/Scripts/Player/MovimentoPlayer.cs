@@ -13,14 +13,10 @@ public class MovimentoPlayer : MonoBehaviour
     public Transform checarChao;
     public float distanciaChao = 0.4f;
     public LayerMask chaoMascara;
+    public AudioSource andar;
 
     Vector3 veloz;
     bool estaNoChao;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -45,5 +41,10 @@ public class MovimentoPlayer : MonoBehaviour
         veloz.y += gravidade * Time.deltaTime;
 
         controle.Move(veloz * Time.deltaTime);
+    }
+
+    public void MusicaAndar()
+    {
+        andar.Play();
     }
 }

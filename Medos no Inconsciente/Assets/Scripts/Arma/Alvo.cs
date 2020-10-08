@@ -7,6 +7,7 @@ public class Alvo : MonoBehaviour
     public int vidaAtual;
 
     public VidaSlider vidaSlider;
+    public AudioSource morte, musicaDepoisMorteInimigo, pausarMusicaAntes;
 
     [SerializeField] private DissolveEffect dissolveEffect;
 
@@ -37,6 +38,9 @@ public class Alvo : MonoBehaviour
 
     void Morte()
     {
+        morte.Play();
+        pausarMusicaAntes.Pause();
+        musicaDepoisMorteInimigo.Play();
         Medalhas.terminou = true;
         inimigo.GetComponent<NavMeshAgent>().enabled = false;
         canvas.SetActive(false);

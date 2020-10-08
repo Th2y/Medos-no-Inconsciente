@@ -13,6 +13,7 @@ public class VidaPlayer : MonoBehaviour
     public GameObject perdeu;
     public VidaSlider vidaSlider;
     public Text quantidadeMoedas;
+    public AudioSource morte;
 
     private int moedas;
     private int moedasGanhas = 0;
@@ -43,6 +44,7 @@ public class VidaPlayer : MonoBehaviour
         }
         if (vidaAtual <= 0)
         {
+            morte.Play();
             moedasGanhas = Random.Range(1, 4);
             moedas += moedasGanhas;
             PlayerPrefs.SetInt("Moedas", moedas);

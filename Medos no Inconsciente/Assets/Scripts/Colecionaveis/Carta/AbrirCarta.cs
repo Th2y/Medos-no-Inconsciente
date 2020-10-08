@@ -11,6 +11,7 @@ public class AbrirCarta : MonoBehaviour
     int cartas1;
     bool apertou = false;
     bool leu = false;
+    bool mus = false;
     public bool[] leuLinha;
     public Text[] aviso;
     public GameObject panelCartas;
@@ -19,6 +20,7 @@ public class AbrirCarta : MonoBehaviour
     public float tempo = 5f;
     List<string> lista = new List<string>();
     public string nomeDaCena;
+    public AudioSource abriuCarta, fechouCarta;
 
     void Start()
     {
@@ -44,14 +46,16 @@ public class AbrirCarta : MonoBehaviour
             tempo -= Time.deltaTime;
             Ler();
         }
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && mus)
         {
+            fechouCarta.Play();
             leu = true;
             apertou = false;
-            estaLendo = false;
+            estaLendo = false;            
             panelCartas.SetActive(false);
             aviso[1].gameObject.SetActive(false);
             Time.timeScale = 1f;
+            mus = false;
         }
     }
 
@@ -77,6 +81,7 @@ public class AbrirCarta : MonoBehaviour
     {
         if ((Input.GetKeyUp(KeyCode.F) && tempo >= 0f))
         {
+            abriuCarta.Play();
             leu = false;
             apertou = true;
             panelCartas.SetActive(true);
@@ -102,6 +107,7 @@ public class AbrirCarta : MonoBehaviour
 
             Time.timeScale = 0f;
             num++;
+            mus = true;
         }
 
         if (tempo <= 0f || apertou)

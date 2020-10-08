@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Carregamento : MonoBehaviour
 {
+    public AudioSource carregou;
     public GameObject[] historias;
     public GameObject[] historinhasMenu;
     int num;
@@ -71,6 +72,7 @@ public class Carregamento : MonoBehaviour
             yield return null;
         }
         progresso = 100;
+        carregou.Play();
         yield return new WaitForSeconds(2);
         carregamento.allowSceneActivation = true;
     }

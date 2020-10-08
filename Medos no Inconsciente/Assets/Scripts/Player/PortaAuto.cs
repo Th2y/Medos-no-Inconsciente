@@ -23,6 +23,8 @@ public class PortaAuto : MonoBehaviour
     private Vector3 posInicial;
     private int numObjDentro;
 
+    public AudioSource porta, sinalizadorSom;
+
     void Start()
     {
         ganhou = false;
@@ -36,7 +38,9 @@ public class PortaAuto : MonoBehaviour
         if (portaAtual.name == "PortaAuto")
         {
             if (numObjDentro > 0)
+            {
                 portaFechada.transform.localPosition = Vector3.Lerp(portaFechada.transform.localPosition, portaAberta.transform.localPosition, velocidade * Time.deltaTime);
+            }
             else
                 portaFechada.transform.localPosition = Vector3.Lerp(portaFechada.transform.localPosition, posInicial, velocidade * Time.deltaTime);
         }
@@ -55,6 +59,7 @@ public class PortaAuto : MonoBehaviour
             }
             else
             {
+                sinalizadorSom.Play();
                 sinalizador.color = verde;
                 if (numObjDentro > 0)
                 {
@@ -70,7 +75,10 @@ public class PortaAuto : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
+        {
+            porta.Play();
             numObjDentro++;
+        }
     }
 
     private void OnTriggerExit(Collider other)
