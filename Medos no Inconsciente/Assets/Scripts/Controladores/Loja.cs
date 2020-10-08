@@ -10,6 +10,7 @@ public class Loja : MonoBehaviour
 	public Text dinheiroAtual;
 	public Text dinheiroMunicao;
 	public Text dinheiroRecarga;
+	public Text dinheiroInsuficiente;
 
 	[Header("Quantidade Atual")]
 	public Text quantidadeMunicaoAtual;
@@ -22,10 +23,8 @@ public class Loja : MonoBehaviour
 	[Header("Botões")]
 	public Button botaoMunicao;
 	public Button botaoRecarga;
-	public Button botaoMunicaoSim;
-	public Button botaoMunicaoNao;
-	public Button botaoRecargaSim;
-	public Button botaoRecargaNao;
+	public GameObject Municao;
+	public GameObject Recarga;
 
 	[HideInInspector]
 	public int atualMunicao;
@@ -34,6 +33,8 @@ public class Loja : MonoBehaviour
 	[HideInInspector]
 	public int moedas;
 
+	private float tempo = 0f;
+	private bool aviso = false;
 	bool mudou = false;
 
 	public static Loja instancia;
@@ -77,6 +78,18 @@ public class Loja : MonoBehaviour
 			mudou = false;
 			PlayerPrefs.SetString("Mudou", "false");
 		}
+
+		if (aviso)
+        {
+			dinheiroInsuficiente.gameObject.SetActive(true);
+			tempo += Time.deltaTime;
+			if (tempo >= 1f)
+            {
+				tempo = 0f;
+				aviso = false;
+				dinheiroInsuficiente.gameObject.SetActive(false);
+			}
+		}
     }
 
     public void MunicaoSim()
@@ -101,13 +114,12 @@ public class Loja : MonoBehaviour
     {
 		if (PlayerPrefs.GetInt("Moedas", moedas) >= 10)
 		{
-			botaoMunicaoSim.interactable = true;
-			botaoMunicaoNao.interactable = true;
+			Municao.SetActive(true);
 		}
 		else
 		{
-			botaoMunicaoSim.interactable = false;
-			botaoMunicaoNao.interactable = false;
+			aviso = true;
+			Municao.SetActive(false);
 		}
 	}
 
@@ -135,13 +147,12 @@ public class Loja : MonoBehaviour
 	{
 		if (PlayerPrefs.GetInt("Moedas", moedas) >= 10)
 		{
-			botaoRecargaSim.interactable = true;
-			botaoRecargaNao.interactable = true;
+			Recarga.SetActive(true);
 		}
 		else
         {
-			botaoRecargaSim.interactable = false;
-			botaoRecargaNao.interactable = false;
+			aviso = true;
+			Recarga.SetActive(false);
 		}
 	}
 

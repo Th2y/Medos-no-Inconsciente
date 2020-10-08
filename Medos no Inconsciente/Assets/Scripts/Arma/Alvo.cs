@@ -37,6 +37,7 @@ public class Alvo : MonoBehaviour
 
     void Morte()
     {
+        Medalhas.terminou = true;
         inimigo.GetComponent<NavMeshAgent>().enabled = false;
         canvas.SetActive(false);
         dissolveEffect.ComecarDissolver(.7f, startDissolveColor);

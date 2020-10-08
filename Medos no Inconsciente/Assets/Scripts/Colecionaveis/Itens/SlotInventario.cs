@@ -5,61 +5,29 @@ using UnityEngine.UI;
 
 public class SlotInventario : MonoBehaviour
 {
-    public ItemBase itemAtual;
-    public Button item;
-    public Image icone;
-    public Image iconeBloqueado;
+    public Button[] item;
 
-    public static bool[] playerPegou = new bool[2];
+    public static bool[] playerPegou = new bool[12];
 
     void Start()
     {
-        icone.gameObject.SetActive(false);
-        iconeBloqueado.gameObject.SetActive(false);
-        playerPegou[0] = false;
-        playerPegou[1] = false;
-    }
-
-    void Update()
-    {
-        if (item.name == "ItemThay")
+        CarregarInventorio();
+        for (int i = 0; i < item.Length; i++)
         {
-            CarregarInventorio();
-            if (playerPegou[0])
-                PlayerPegou();
+            if (playerPegou[i])
+                item[i].interactable = true;
             else
-                PlayerNaoPegou();
-
-        }
-        else if (item.name == "ItemMio")
-        {
-            CarregarInventorio();
-            if (playerPegou[1])
-                PlayerPegou();
-            else
-                PlayerNaoPegou();
+                item[i].interactable = false;
         }
     }
 
-    public void PlayerPegou()
+    public void CarregarInventorio()
     {
-        icone.gameObject.SetActive(true);
-        iconeBloqueado.gameObject.SetActive(false);
-        item.interactable = true;
-    }
-
-    public void PlayerNaoPegou()
-    {
-        icone.gameObject.SetActive(false);
-        iconeBloqueado.gameObject.SetActive(true);
-        item.interactable = false;
-    }
-
-    public static void CarregarInventorio()
-    {
-        if (PlayerPrefs.GetInt("ItemThay") != 0)
+        if (PlayerPrefs.GetString("Medalha1_1") == "Sim")
             playerPegou[0] = true;
-        if (PlayerPrefs.GetInt("ItemMio") != 0)
+        if (PlayerPrefs.GetString("Medalha1_2") == "Sim")
             playerPegou[1] = true;
+        if (PlayerPrefs.GetString("Medalha1_3") == "Sim")
+            playerPegou[2] = true;
     }
 }

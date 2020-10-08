@@ -12,17 +12,22 @@ public class VidaPlayer : MonoBehaviour
     public GameObject ganhou;
     public GameObject perdeu;
     public VidaSlider vidaSlider;
+    public Text quantidadeMoedas;
 
-    public GameObject[] itensColetados;
+    private int moedas;
+    private int moedasGanhas = 0;
 
     void Start()
     {
+        if (PlayerPrefs.HasKey("Moedas"))
+            moedas = PlayerPrefs.GetInt("Moedas");
+        else
+            moedas = 0;
+
         ganhou.SetActive(false);
         perdeu.SetActive(false);
         vidaAtual = vidaMax;
         vidaSlider.MaxVida(vidaMax);
-        itensColetados[0].SetActive(false);
-        itensColetados[1].SetActive(false);
         PlayerPrefs.SetString("Mudou", "false");
     }
 
@@ -38,6 +43,10 @@ public class VidaPlayer : MonoBehaviour
         }
         if (vidaAtual <= 0)
         {
+            moedasGanhas = Random.Range(1, 4);
+            moedas += moedasGanhas;
+            PlayerPrefs.SetInt("Moedas", moedas);
+            quantidadeMoedas.text = moedasGanhas.ToString();
             MouseCursorAparencia.mouseOn = true;
             perdeu.SetActive(true);
             Menu.instancia.DeletarKeysFase1();
@@ -55,11 +64,6 @@ public class VidaPlayer : MonoBehaviour
     {
         MouseCursorAparencia.mouseOn = true;
         ganhou.SetActive(true);
-
-        if(PlayerPrefs.GetInt("ItemThay") != 0)
-            itensColetados[0].SetActive(true);
-        if (PlayerPrefs.GetInt("ItemMio") != 0)
-            itensColetados[1].SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)

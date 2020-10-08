@@ -4,6 +4,8 @@ public class Arma : MonoBehaviour
 {
     public float dano = 10f;
     public float alcance = 100f;
+    private int balasGastas = 0;
+    public static int balasUsadas;
 
     public Camera fpsCam;
     public ParticleSystem flash;
@@ -17,8 +19,13 @@ public class Arma : MonoBehaviour
     public static Arma instancia;
     public AudioSource tiro;
 
+    public GameObject municaoAtiva;
+    public GameObject recargaAtiva;
+
     private void Start()
     {
+        municaoAtiva.SetActive(true);
+        recargaAtiva.SetActive(false);
         instancia = this;
         quantidadeBalas = PlayerPrefs.GetInt("Municao", Loja.instancia.atualMunicao);
         tempoRecarga = 0;
@@ -26,6 +33,14 @@ public class Arma : MonoBehaviour
 
     void Update()
     {
+        if(quantidadeBalas > 0)
+        {
+            municaoAtiva.SetActive(true);
+            recargaAtiva.SetActive(false);
+        }
+
+        balasUsadas = balasGastas;
+
         mostrarTempoRecarga = (int)tempoRecarga;
 
         if (Input.GetButtonUp("Fire1"))
@@ -38,12 +53,14 @@ public class Arma : MonoBehaviour
         else
             estaMirando = false;
 
-        if(quantidadeBalas == 5)
+        if(quantidadeBalas == PlayerPrefs.GetInt("Municao"))
             tempoRecarga = 0f;
 
         if (quantidadeBalas == 0)
         {
-            if(tempoRecarga == 0)
+            municaoAtiva.SetActive(false);
+            recargaAtiva.SetActive(true);
+            if (tempoRecarga == 0)
                 tempoRecarga = PlayerPrefs.GetFloat("Recarga", Loja.instancia.atualRecarga);
             tempoRecarga -= Time.deltaTime;
             if (tempoRecarga <= 0)
@@ -53,6 +70,7 @@ public class Arma : MonoBehaviour
 
     void Atirar()
     {
+        balasGastas++;
         flash.Play();
         tiro.Play();
         RaycastHit hit;

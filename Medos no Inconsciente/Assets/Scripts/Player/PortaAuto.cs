@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class PortaAuto : MonoBehaviour
 {
     public GameObject portaAberta, portaFechada;
+    public SpriteRenderer sinalizador;
+    public Color vermelho;
+    public Color verde;
 
     public GameObject portaAtual;
     public GameObject inimigo;
@@ -41,6 +44,7 @@ public class PortaAuto : MonoBehaviour
         {
             if (inimigo != null)
             {
+                sinalizador.color = vermelho;
                 if (numObjDentro > 0 && tempo >= 0)
                 {
                     tempo -= Time.deltaTime;
@@ -51,6 +55,7 @@ public class PortaAuto : MonoBehaviour
             }
             else
             {
+                sinalizador.color = verde;
                 if (numObjDentro > 0)
                 {
                     portaFechada.transform.localPosition = Vector3.Lerp(portaFechada.transform.localPosition, portaAberta.transform.localPosition, velocidade * Time.deltaTime);
