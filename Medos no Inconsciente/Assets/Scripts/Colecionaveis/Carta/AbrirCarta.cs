@@ -18,6 +18,7 @@ public class AbrirCarta : MonoBehaviour
     public Text conteudoCartas;
     bool estaLendo = false;
     public float tempo = 5f;
+    string[] cartasFase1;
     List<string> lista = new List<string>();
     public string nomeDaCena;
     public AudioSource abriuCarta, fechouCarta;
@@ -26,13 +27,15 @@ public class AbrirCarta : MonoBehaviour
     {
         nomeDaCena = SceneManager.GetActiveScene().name;
 
-        string[] cartasFase1 = File.ReadAllLines("Assets\\Txt\\CartasFase1.txt");
-        for (int i = 0; i < cartasFase1.Length; i++)
+        TextAsset fase1 = (TextAsset)Resources.Load("Txt/CartasFase1");
+        cartasFase1 = fase1.text.Split('\n');
+
+        for(int i = 0; i < cartasFase1.Length; i++)
         {
             lista.Add(cartasFase1[i]);
         }
 
-        leuLinha = new bool[cartasFase1.Length];
+        leuLinha = new bool[5];
 
         aviso[0].gameObject.SetActive(false);
         aviso[1].gameObject.SetActive(false);

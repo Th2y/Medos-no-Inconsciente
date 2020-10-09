@@ -12,10 +12,13 @@ public class PegouACarta : MonoBehaviour
     List<string> lista = new List<string>();
     public Image[] cadeado;
     public Image[] carta;
+    private string[] cartasFase1Lidas;
 
     private void Update()
     {
-        string[] cartasFase1Lidas = File.ReadAllLines("Assets\\Txt\\CartasFase1.txt");
+        TextAsset fase1 = (TextAsset)Resources.Load("Txt/CartasFase1");
+        cartasFase1Lidas = fase1.text.Split('\n');
+
         for (int i = 0; i < cartasFase1Lidas.Length; i++)
         {
             lista.Add(cartasFase1Lidas[i]);

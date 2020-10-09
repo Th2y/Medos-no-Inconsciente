@@ -29,11 +29,6 @@ public class Laser : MonoBehaviour
                 lr.SetPosition(1, hit.point);
             }
         }
-
-        else lr.SetPosition(1, posicaoAlvo);
-
-
-        Debug.DrawLine(inimigo.transform.position, direcao * 2);
     }
 }
 

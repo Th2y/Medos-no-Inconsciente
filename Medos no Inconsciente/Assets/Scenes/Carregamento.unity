@@ -1212,7 +1212,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 20ce48c6ac49ff141b12aadc89969af4, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 3
@@ -1221,12 +1221,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.1
-  m_Text: "Nicolas, ap\xF3s uma longa noite estudando exaustivamente, deitou-se em
-    sua cama, a fim de relaxar sua mente preocupada. Os trabalhos da escola e uma
-    fam\xEDlia desestruturando aos poucos, s\xE3o itens complicados demais para a
-    mente de um adolescente de treze anos. Confort\xE1vel dentre as cobertas, finalmente
-    fechou seus olhos a pedir, mesmo que inconsciente, que pudesse relaxar ap\xF3s
-    tantas noites de ins\xF4nia."
+  m_Text: "Nicolas \xE9 um garoto de 13 anos que h\xE1 1 ano perdeu sua irm\xE3 mais
+    nova, Carina, nunca encontrada desde seu desaparecimento quando havia sa\xEDdo
+    de sua casa, em uma manh\xE3, para ir ao col\xE9gio, e ap\xF3s esse dia, n\xE3o
+    retornou mais."
 --- !u!222 &7986167860211761567
 CanvasRenderer:
   m_ObjectHideFlags: 0

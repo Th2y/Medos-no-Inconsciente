@@ -45,10 +45,12 @@ public class VidaPlayer : MonoBehaviour
         if (vidaAtual <= 0)
         {
             morte.Play();
+
             moedasGanhas = Random.Range(1, 4);
             moedas += moedasGanhas;
             PlayerPrefs.SetInt("Moedas", moedas);
             quantidadeMoedas.text = moedasGanhas.ToString();
+
             MouseCursorAparencia.mouseOn = true;
             perdeu.SetActive(true);
             Menu.instancia.DeletarKeysFase1();

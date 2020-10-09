@@ -24,8 +24,8 @@ public class Inimigo : MonoBehaviour
         naveMesh.destination = distanciajogador;
         distanciaPlayer = Vector3.Distance(player.transform.position, transform.position);
 
-        //if (!estaAtacando)
-            //laser.SetActive(false);
+        if (!estaAtacando)
+            laser.SetActive(false);
 
         if (distanciaPlayer <= distanciaAtaque1 || distanciaPlayer <= distanciaAtaque2)
             estaAtacando = true;
@@ -45,7 +45,7 @@ public class Inimigo : MonoBehaviour
     {
         VidaPlayer.estaSendoAtacado = true;
         quantBalas--;
-        //laser.SetActive(true);
+        laser.SetActive(true);
         Invoke("Fim", 4f);
     }
 
