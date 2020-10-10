@@ -7,35 +7,91 @@ using UnityEngine.SceneManagement;
 
 public class AbrirCarta : MonoBehaviour
 {
-    int num;
-    int cartas1;
-    bool apertou = false;
-    bool leu = false;
-    bool mus = false;
-    public bool[] leuLinha;
+    private int num, a = 0, cartasF1;
+    private bool apertou = false, leu = false, mus = false, estaLendo = false;
     public Text[] aviso;
     public GameObject panelCartas;
-    public Text conteudoCartas;
-    bool estaLendo = false;
-    public float tempo = 5f;
+    public Text[] conteudoCartas;
+    private float tempo = 5f;
     string[] cartasFase1;
     List<string> lista = new List<string>();
     public string nomeDaCena;
     public AudioSource abriuCarta, fechouCarta;
 
+    private void Awake()
+    {
+        TextAsset fase1 = (TextAsset)Resources.Load("Txt/CartasFase1");
+        cartasFase1 = fase1.text.Split('\n');
+
+        for (int i = 0; i < cartasFase1.Length; i++)
+        {
+            lista.Add(cartasFase1[i]);
+        }
+    }
+
     void Start()
     {
         nomeDaCena = SceneManager.GetActiveScene().name;
 
-        TextAsset fase1 = (TextAsset)Resources.Load("Txt/CartasFase1");
-        cartasFase1 = fase1.text.Split('\n');
-
-        for(int i = 0; i < cartasFase1.Length; i++)
+        if(!PlayerPrefs.HasKey("CartasF1_1"))
         {
-            lista.Add(cartasFase1[i]);
+            do
+            {
+                if (num == 0)
+                {
+                    cartasF1 = Random.Range(0, 4);
+                    PlayerPrefs.SetString("CartasF1_1", lista[cartasF1]);
+                    conteudoCartas[0].text = PlayerPrefs.GetString("CartasF1_1");
+                    lista.RemoveAt(cartasF1);
+                }
+                else if (num == 1)
+                {
+                    cartasF1 = Random.Range(0, 3);
+                    PlayerPrefs.SetString("CartasF1_2", lista[cartasF1]);
+                    conteudoCartas[1].text = PlayerPrefs.GetString("CartasF1_2");
+                    lista.RemoveAt(cartasF1);
+                }
+                else if (num == 2)
+                {
+                    cartasF1 = Random.Range(0, 2);
+                    PlayerPrefs.SetString("CartasF1_3", lista[cartasF1]);
+                    conteudoCartas[2].text = PlayerPrefs.GetString("CartasF1_3");
+                    lista.RemoveAt(cartasF1);
+                }
+                else if (num == 3)
+                {
+                    cartasF1 = Random.Range(0, 1);
+                    PlayerPrefs.SetString("CartasF1_4", lista[cartasF1]);
+                    conteudoCartas[3].text = PlayerPrefs.GetString("CartasF1_4");
+                    lista.RemoveAt(cartasF1);
+                }
+                else if (num == 4)
+                {
+                    PlayerPrefs.SetString("CartasF1_5", lista[0]);
+                    conteudoCartas[4].text = PlayerPrefs.GetString("CartasF1_5");
+                }
+                num++;
+            } while (num < 5);
         }
 
-        leuLinha = new bool[5];
+        else
+        {
+            do
+            {
+                if (num == 0)
+                    conteudoCartas[0].text = PlayerPrefs.GetString("CartasF1_1");
+                else if (num == 1)
+                    conteudoCartas[1].text = PlayerPrefs.GetString("CartasF1_2");
+                else if (num == 2)
+                    conteudoCartas[2].text = PlayerPrefs.GetString("CartasF1_3");
+                else if (num == 3)
+                    conteudoCartas[3].text = PlayerPrefs.GetString("CartasF1_4");
+                else if (num == 4)
+                    conteudoCartas[4].text = PlayerPrefs.GetString("CartasF1_5");
+
+                num++;
+            } while (num < 5);
+        }
 
         aviso[0].gameObject.SetActive(false);
         aviso[1].gameObject.SetActive(false);
@@ -43,7 +99,7 @@ public class AbrirCarta : MonoBehaviour
     }
 
     void Update()
-    {
+    {        
         if (estaLendo)
         {
             tempo -= Time.deltaTime;
@@ -51,6 +107,11 @@ public class AbrirCarta : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire2") && mus)
         {
+            for(int i = 0; i < 5; i++)
+            {
+                conteudoCartas[i].gameObject.SetActive(false);
+            }
+
             fechouCarta.Play();
             leu = true;
             apertou = false;
@@ -89,27 +150,37 @@ public class AbrirCarta : MonoBehaviour
             apertou = true;
             panelCartas.SetActive(true);
             aviso[1].gameObject.SetActive(true);
-            cartas1 = Random.Range(0, lista.Count);
 
-            conteudoCartas.text = lista[cartas1];
-            if (num == 0)
-                PlayerPrefs.SetString("PegouCarta1", conteudoCartas.text);
-            else if (num == 1)
-                PlayerPrefs.SetString("PegouCarta2", conteudoCartas.text);
-            else if (num == 2)
-                PlayerPrefs.SetString("PegouCarta3", conteudoCartas.text);
-            else if (num == 3)
-                PlayerPrefs.SetString("PegouCarta4", conteudoCartas.text);
-            else if (num == 4)
-                PlayerPrefs.SetString("PegouCarta5", conteudoCartas.text);
+            if (a == 0)
+            {
+                conteudoCartas[0].gameObject.SetActive(true);
+                PlayerPrefs.SetString("PegouCarta1", "Sim");
+            }
+            else if (a == 1)
+            {
+                conteudoCartas[1].gameObject.SetActive(true);
+                PlayerPrefs.SetString("PegouCarta2", "Sim");
+            }
+            else if (a == 2)
+            {
+                conteudoCartas[2].gameObject.SetActive(true);
+                PlayerPrefs.SetString("PegouCarta3", "Sim");
+            }
+            else if (a == 3)
+            {
+                conteudoCartas[3].gameObject.SetActive(true);
+                PlayerPrefs.SetString("PegouCarta4", "Sim");
+            }
+            else if (a == 4)
+            {
+                conteudoCartas[4].gameObject.SetActive(true);
+                PlayerPrefs.SetString("PegouCarta5", "Sim");
+            }
 
-            leuLinha[cartas1] = true;
             estaLendo = false;
-            if (lista.Count > 0)
-                lista.RemoveAt(cartas1);
 
             Time.timeScale = 0f;
-            num++;
+            a++;
             mus = true;
         }
 

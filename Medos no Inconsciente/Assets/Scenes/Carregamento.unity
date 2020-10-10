@@ -618,7 +618,7 @@ MonoBehaviour:
   - {fileID: 1430777348}
   - {fileID: 1895123643}
   - {fileID: 1767990090}
-  TempoFixoSeg: 60
+  TempoFixoSeg: 20
   TipoDeCarregamento: 0
   barraDeCarregamento: {fileID: 7986167861270179466}
   TextoProgresso: {fileID: 7986167861136739009}

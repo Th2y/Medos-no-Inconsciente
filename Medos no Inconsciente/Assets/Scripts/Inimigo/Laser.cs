@@ -4,7 +4,7 @@ using System.Collections;
 public class Laser : MonoBehaviour
 {
     private LineRenderer lr;
-    public GameObject inimigo;
+    public Transform player;
 
     public AudioSource laser;
 
@@ -15,20 +15,10 @@ public class Laser : MonoBehaviour
 
     void Update()
     {
-        Vector3 posicaoAlvo = inimigo.transform.position;
-        posicaoAlvo.z -= 2;
-        Vector3 direcao = (posicaoAlvo - inimigo.transform.position).normalized;
-        direcao.y = 0;
-
         lr.SetPosition(0, transform.position);
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, direcao, out hit, 20))
-        {
-            if (hit.collider)
-            {
-                lr.SetPosition(1, hit.point);
-            }
-        }
+        lr.SetPosition(1, player.position);
+
+        Vector3 dir = transform.position - player.position;
     }
 }
 

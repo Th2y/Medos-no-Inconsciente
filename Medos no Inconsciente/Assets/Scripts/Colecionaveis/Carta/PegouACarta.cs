@@ -14,7 +14,7 @@ public class PegouACarta : MonoBehaviour
     public Image[] carta;
     private string[] cartasFase1Lidas;
 
-    private void Update()
+    private void Start()
     {
         TextAsset fase1 = (TextAsset)Resources.Load("Txt/CartasFase1");
         cartasFase1Lidas = fase1.text.Split('\n');
@@ -23,18 +23,22 @@ public class PegouACarta : MonoBehaviour
         {
             lista.Add(cartasFase1Lidas[i]);
         }
+    }
+
+    private void Update()
+    {
         cartasPegas[0].text = PlayerPrefs.GetString("PegouCarta1");
         cartasPegas[1].text = PlayerPrefs.GetString("PegouCarta2");
         cartasPegas[2].text = PlayerPrefs.GetString("PegouCarta3");
         cartasPegas[3].text = PlayerPrefs.GetString("PegouCarta4");
         cartasPegas[4].text = PlayerPrefs.GetString("PegouCarta5");
 
-        if (cartasPegas[0].text == lista[0] || cartasPegas[1].text == lista[0] || cartasPegas[2].text == lista[0] || cartasPegas[3].text == lista[0] || cartasPegas[4].text == lista[0])
+        if (cartasPegas[0].text == "Sim")
         {
             cadeado[0].gameObject.SetActive(false);
             carta[0].gameObject.SetActive(true);
             botoesCartas[0].interactable = true;
-            cartasPegasLidas[0].text = cartasFase1Lidas[0];
+            cartasPegasLidas[0].text = PlayerPrefs.GetString("CartasF1_1");
         }
         else
         {
@@ -43,12 +47,12 @@ public class PegouACarta : MonoBehaviour
             botoesCartas[0].interactable = false;
         }
 
-        if (cartasPegas[0].text == lista[1] || cartasPegas[1].text == lista[1] || cartasPegas[2].text == lista[1] || cartasPegas[3].text == lista[1] || cartasPegas[4].text == lista[1])
+        if (cartasPegas[1].text == "Sim")
         {
             cadeado[1].gameObject.SetActive(false);
             carta[1].gameObject.SetActive(true);
             botoesCartas[1].interactable = true;
-            cartasPegasLidas[1].text = cartasFase1Lidas[1];
+            cartasPegasLidas[1].text = PlayerPrefs.GetString("CartasF1_2");
         }
         else
         {
@@ -57,12 +61,12 @@ public class PegouACarta : MonoBehaviour
             botoesCartas[1].interactable = false;
         }
 
-        if (cartasPegas[0].text == lista[2] || cartasPegas[1].text == lista[2] || cartasPegas[2].text == lista[2] || cartasPegas[3].text == lista[2] || cartasPegas[4].text == lista[2])
+        if (cartasPegas[2].text == "Sim")
         {
             cadeado[2].gameObject.SetActive(false);
             carta[2].gameObject.SetActive(true);
             botoesCartas[2].interactable = true;
-            cartasPegasLidas[2].text = cartasFase1Lidas[2];
+            cartasPegasLidas[2].text = PlayerPrefs.GetString("CartasF1_3");
         }
         else
         {
@@ -71,12 +75,12 @@ public class PegouACarta : MonoBehaviour
             botoesCartas[2].interactable = false;
         }
 
-        if (cartasPegas[0].text == lista[3] || cartasPegas[1].text == lista[3] || cartasPegas[2].text == lista[3] || cartasPegas[3].text == lista[3] || cartasPegas[4].text == lista[3])
+        if (cartasPegas[3].text == "Sim")
         {
             cadeado[3].gameObject.SetActive(false);
             carta[3].gameObject.SetActive(true);
             botoesCartas[3].interactable = true;
-            cartasPegasLidas[3].text = cartasFase1Lidas[3];
+            cartasPegasLidas[3].text = PlayerPrefs.GetString("CartasF1_4");
         }
         else
         {
@@ -85,12 +89,12 @@ public class PegouACarta : MonoBehaviour
             botoesCartas[3].interactable = false;
         }
 
-        if (cartasPegas[0].text == lista[4] || cartasPegas[1].text == lista[4] || cartasPegas[2].text == lista[4] || cartasPegas[3].text == lista[4] || cartasPegas[4].text == lista[4])
+        if (cartasPegas[4].text == "Sim")
         {
             cadeado[4].gameObject.SetActive(false);
             carta[4].gameObject.SetActive(true);
             botoesCartas[4].interactable = true;
-            cartasPegasLidas[4].text = cartasFase1Lidas[4];
+            cartasPegasLidas[4].text = PlayerPrefs.GetString("CartasF1_5");
         }
         else
         {
