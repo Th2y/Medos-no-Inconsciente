@@ -41,6 +41,7 @@ public class Medalhas : MonoBehaviour
             moedas += moedasGanhas;
             PlayerPrefs.SetInt("Moedas", moedas);
             medalhas[2].SetActive(true);
+            medalhas[5].SetActive(true);
             PlayerPrefs.SetString("Medalha1_3", "Sim");
         }
         else if (Arma.balasUsadas > 5)
@@ -49,6 +50,7 @@ public class Medalhas : MonoBehaviour
             moedas += moedasGanhas;
             PlayerPrefs.SetInt("Moedas", moedas);
             medalhas[1].SetActive(true);
+            medalhas[4].SetActive(true);
             PlayerPrefs.SetString("Medalha1_2", "Sim");
         }
         else
@@ -57,6 +59,7 @@ public class Medalhas : MonoBehaviour
             moedas += moedasGanhas;
             PlayerPrefs.SetInt("Moedas", moedas);
             medalhas[0].SetActive(true);
+            medalhas[3].SetActive(true);
             PlayerPrefs.SetString("Medalha1_1", "Sim");
         }
 
