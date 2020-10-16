@@ -710,7 +710,6 @@ GameObject:
   - component: {fileID: 182413447}
   - component: {fileID: 182413449}
   - component: {fileID: 182413448}
-  - component: {fileID: 182413450}
   m_Layer: 5
   m_Name: Medalha
   m_TagString: Untagged
@@ -777,26 +776,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182413446}
   m_CullTransparentMesh: 0
---- !u!114 &182413450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182413446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38b7f18ee9250741a36f5f0f27da320, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medalhas:
-  - {fileID: 1987030674}
-  - {fileID: 1356063952}
-  - {fileID: 473044302}
-  - {fileID: 820512086}
-  - {fileID: 834367872}
-  - {fileID: 886539411}
-  quantidadeMoedas: {fileID: 1646741999}
 --- !u!1 &192683222
 GameObject:
   m_ObjectHideFlags: 0
@@ -14757,6 +14736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1999140116}
+  - component: {fileID: 1999140117}
   m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
@@ -14782,6 +14762,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1999140117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999140115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38b7f18ee9250741a36f5f0f27da320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medalhas:
+  - {fileID: 1987030674}
+  - {fileID: 1356063952}
+  - {fileID: 473044302}
+  - {fileID: 820512086}
+  - {fileID: 834367872}
+  - {fileID: 886539411}
+  quantidadeMoedas: {fileID: 1646741999}
 --- !u!1 &2069737166
 GameObject:
   m_ObjectHideFlags: 0
@@ -15953,8 +15953,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2712592589274600438}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.031, y: -0.039, z: 0.02}
-  m_LocalScale: {x: 60, y: 60, z: 60}
+  m_LocalPosition: {x: 0.0308, y: -0.0278, z: 0.02}
+  m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children:
   - {fileID: 1485903334}
   m_Father: {fileID: 960566808}
