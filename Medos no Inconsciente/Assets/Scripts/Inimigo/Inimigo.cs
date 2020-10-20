@@ -8,9 +8,8 @@ public class Inimigo : MonoBehaviour
 {
     public Transform player;
     private NavMeshAgent naveMesh;
-    private float distanciaPlayer, distanciaAtaque1 = 40f, distanciaAtaque2 = -40f, cronometroAtaque = 5f;
+    private float distanciaPlayer, distanciaAtaque1 = 10f, distanciaAtaque2 = -10f, cronometroAtaque = 5f;
     public bool estaAtacando = false;
-    private int quantBalas = 5;
     public GameObject laser;
 
     void Start()
@@ -30,7 +29,7 @@ public class Inimigo : MonoBehaviour
         if (distanciaPlayer <= distanciaAtaque1 || distanciaPlayer <= distanciaAtaque2)
             estaAtacando = true;
 
-        if (estaAtacando && quantBalas > 0)
+        if (estaAtacando)
         {
             cronometroAtaque -= Time.deltaTime;
         }
@@ -44,7 +43,6 @@ public class Inimigo : MonoBehaviour
     void Atacar()
     {
         VidaPlayer.estaSendoAtacado = true;
-        quantBalas--;
         laser.SetActive(true);
         Invoke("Fim", 4f);
     }

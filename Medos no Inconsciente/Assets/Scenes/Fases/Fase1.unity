@@ -8646,6 +8646,7 @@ MonoBehaviour:
   tiro: {fileID: 1028477679}
   municaoAtiva: {fileID: 1822708862}
   recargaAtiva: {fileID: 633682716}
+  animTiro: {fileID: 2712592589274600439}
 --- !u!1 &969092997
 GameObject:
   m_ObjectHideFlags: 0
@@ -15884,7 +15885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1087509579407400014
 Transform:
   m_ObjectHideFlags: 0
@@ -15997,6 +15998,7 @@ GameObject:
   - component: {fileID: 1440669531898323429}
   - component: {fileID: 7972866613735594963}
   - component: {fileID: 4438797273509652266}
+  - component: {fileID: 2712592589274600439}
   m_Layer: 15
   m_Name: Pistol
   m_TagString: Untagged
@@ -16004,6 +16006,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &2712592589274600439
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2712592589274600438}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fd73a7a8de89924088e0e8a449a1e18, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!23 &3455864145454811486
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class Arma : MonoBehaviour
 
     public GameObject municaoAtiva;
     public GameObject recargaAtiva;
+    public Animator animTiro;
 
     private void Start()
     {
@@ -48,6 +49,9 @@ public class Arma : MonoBehaviour
             if (quantidadeBalas > 0 && !Menu.menuAberto)
                 Atirar();
         }
+        else
+            animTiro.SetInteger("AnimTiro", 0);
+
         if (Input.GetButton("Fire2"))
             estaMirando = true;
         else
@@ -81,6 +85,8 @@ public class Arma : MonoBehaviour
             {
                 alvo.LevarDano((int)dano);
             }
+
+            animTiro.SetInteger("AnimTiro", 1);
 
             GameObject impactoGO = Instantiate(impactoEfeito, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactoGO, 2f);
