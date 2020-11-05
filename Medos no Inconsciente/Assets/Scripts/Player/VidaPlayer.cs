@@ -7,9 +7,11 @@ public class VidaPlayer : MonoBehaviour
 {
     public int vidaMax = 100;
     public int vidaAtual;
-    public static bool estaSendoAtacado = false;
+    public static bool estaSendoAtacadoX1 = false;
+    public static bool estaSendoAtacadoX2 = false;
 
     public GameObject ganhou;
+    public GameObject inimigo;
     public GameObject perdeu;
     public VidaSlider vidaSlider;
     public Text quantidadeMoedas;
@@ -37,10 +39,15 @@ public class VidaPlayer : MonoBehaviour
         if (PortaAuto.ganhou)
             Invoke("Ganhou", 5f);
 
-        if (estaSendoAtacado)
+        if (estaSendoAtacadoX1)
         {
-            LevarDano(20);
-            estaSendoAtacado = false;
+            LevarDanoX1(10);
+            estaSendoAtacadoX1 = false;
+        }
+        if (estaSendoAtacadoX2)
+        {
+            LevarDanoX2(20);
+            estaSendoAtacadoX2 = false;
         }
         if (vidaAtual <= 0)
         {
@@ -55,11 +62,21 @@ public class VidaPlayer : MonoBehaviour
             perdeu.SetActive(true);
             Menu.instancia.DeletarKeysFase1();
         }
+
+        if (inimigo == null)
+            ganhou.SetActive(true);
     }
 
-    public void LevarDano(int dano)
+    public void LevarDanoX1(int dano)
     {
-        estaSendoAtacado = true;
+        estaSendoAtacadoX1 = true;
+        vidaAtual -= dano;
+        vidaSlider.EscolherVida(vidaAtual);
+    }
+
+    public void LevarDanoX2(int dano)
+    {
+        estaSendoAtacadoX2 = true;
         vidaAtual -= dano;
         vidaSlider.EscolherVida(vidaAtual);
     }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Arma : MonoBehaviour
 {
@@ -23,22 +24,45 @@ public class Arma : MonoBehaviour
     public GameObject recargaAtiva;
     public Animator animTiro;
 
+    public Material municoes;
+    public Material recarga;
+    public Color verde, amarelo, vermelho, azul;
+
     private void Start()
     {
         municaoAtiva.SetActive(true);
         recargaAtiva.SetActive(false);
         instancia = this;
-        quantidadeBalas = PlayerPrefs.GetInt("Municao", Loja.instancia.atualMunicao);
+        quantidadeBalas = PlayerPrefs.GetInt("Municao");
         tempoRecarga = 0;
     }
 
     void Update()
     {
-        if(quantidadeBalas > 0)
-        {
+        if (quantidadeBalas > 0)
+        { 
+            StopCoroutine("Recarregando");
+            recarga.color = azul;
+            if (quantidadeBalas >= 3)
+            {
+                //Material verde
+                municoes.color = verde;
+            }
+            else if (quantidadeBalas >= 2)
+            {
+                //Material amarelo
+                municoes.color = amarelo;
+            }
+            else
+            {
+                //Material vermelho
+                municoes.color = vermelho;
+            }
             municaoAtiva.SetActive(true);
             recargaAtiva.SetActive(false);
         }
+        else
+            recarga.color = amarelo;
 
         balasUsadas = balasGastas;
 
@@ -61,19 +85,22 @@ public class Arma : MonoBehaviour
             tempoRecarga = 0f;
 
         if (quantidadeBalas == 0)
-        {
+        {         
+            municoes.color = vermelho;
+
             municaoAtiva.SetActive(false);
             recargaAtiva.SetActive(true);
             if (tempoRecarga == 0)
-                tempoRecarga = PlayerPrefs.GetFloat("Recarga", Loja.instancia.atualRecarga);
+                tempoRecarga = PlayerPrefs.GetFloat("Recarga");
             tempoRecarga -= Time.deltaTime;
             if (tempoRecarga <= 0)
-                quantidadeBalas = PlayerPrefs.GetInt("Municao", Loja.instancia.atualMunicao);
+                quantidadeBalas = PlayerPrefs.GetInt("Municao");
         }
     }
 
     void Atirar()
     {
+        quantidadeBalas--;
         balasGastas++;
         flash.Play();
         tiro.Play();
@@ -91,7 +118,5 @@ public class Arma : MonoBehaviour
             GameObject impactoGO = Instantiate(impactoEfeito, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactoGO, 2f);
         }
-
-        quantidadeBalas--;
     }
 }

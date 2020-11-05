@@ -10,6 +10,8 @@ TagManager:
   - Item
   - Efeitos
   - Musicas
+  - PoderX2
+  - PoderX1
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - Teto
   - Paredes
   - Inimigo
-  - Familia
+  - AndavelInimigo
   - Player
   - Carta
   - 

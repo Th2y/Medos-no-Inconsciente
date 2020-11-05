@@ -3,8 +3,9 @@ using UnityEngine.AI;
 
 public class Alvo : MonoBehaviour
 {
-    public int vidaMax = 50;
+    public int vidaMax = 0;
     public int vidaAtual;
+    public static bool podeAtirar = true;
 
     public VidaSlider vidaSlider;
     public AudioSource morte, musicaDepoisMorteInimigo, pausarMusicaAntes;
@@ -18,6 +19,13 @@ public class Alvo : MonoBehaviour
 
     private void Start()
     {
+        if (gameObject.CompareTag("PoderX1"))
+            vidaMax = 30;
+        else if (gameObject.CompareTag("PoderX2"))
+            vidaMax = 50;
+        else
+            vidaMax = 100;
+
         vidaAtual = vidaMax;
         vidaSlider.MaxVida(vidaMax);
     }
@@ -39,9 +47,12 @@ public class Alvo : MonoBehaviour
     void Morte()
     {
         morte.Play();
-        pausarMusicaAntes.Pause();
-        musicaDepoisMorteInimigo.Play();
-        Medalhas.terminou = true;
+        if(gameObject.CompareTag("PoderX2"))
+        {
+            pausarMusicaAntes.Pause();
+            musicaDepoisMorteInimigo.Play();
+            Medalhas.terminou = true;
+        }
         inimigo.GetComponent<NavMeshAgent>().enabled = false;
         canvas.SetActive(false);
         dissolveEffect.ComecarDissolver(.7f, startDissolveColor);

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class UIElementos : MonoBehaviour
 {
-    public Text municao;
-    public Text tempoRecarga;
+    //public Text municao;
+    //public Text tempoRecarga;
     public Image mira;
 
     public Text avisoItem;
@@ -21,10 +21,10 @@ public class UIElementos : MonoBehaviour
         instancia = this;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        municao.text = Arma.instancia.quantidadeBalas.ToString();
-        tempoRecarga.text = Arma.mostrarTempoRecarga + "s";
+        //municao.text = Arma.instancia.quantidadeBalas.ToString();
+        //tempoRecarga.text = Arma.mostrarTempoRecarga + "s";
 
         if(Arma.estaMirando)
             mira.gameObject.SetActive(true);

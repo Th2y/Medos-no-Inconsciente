@@ -18,7 +18,7 @@ public class MouseCursorAparencia : MonoBehaviour
             mouseOn = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         {
             if(!mouseOn)

@@ -8,9 +8,10 @@ public class Inimigo : MonoBehaviour
 {
     public Transform player;
     private NavMeshAgent naveMesh;
-    private float distanciaPlayer, distanciaAtaque1 = 10f, distanciaAtaque2 = -10f, cronometroAtaque = 5f;
+    private float distanciaPlayer, distanciaAtaque = 20f, cronometroAtaque = 5f;
     public bool estaAtacando = false;
     public GameObject laser;
+    public bool podeAtacar = false;
 
     void Start()
     {        
@@ -23,26 +24,33 @@ public class Inimigo : MonoBehaviour
         naveMesh.destination = distanciajogador;
         distanciaPlayer = Vector3.Distance(player.transform.position, transform.position);
 
-        if (!estaAtacando)
+        if(podeAtacar)
+        {
+            if (distanciaPlayer <= distanciaAtaque && distanciaPlayer >= distanciaAtaque - 10)
+                estaAtacando = true;
+
+            if (!estaAtacando)
+                laser.SetActive(false);
+            else
+                cronometroAtaque -= Time.deltaTime;
+
+            if (cronometroAtaque <= 0)
+            {
+                Atacar();
+                cronometroAtaque = 5f;
+            }
+        }        
+        else
             laser.SetActive(false);
-
-        if (distanciaPlayer <= distanciaAtaque1 || distanciaPlayer <= distanciaAtaque2)
-            estaAtacando = true;
-
-        if (estaAtacando)
-        {
-            cronometroAtaque -= Time.deltaTime;
-        }
-        if (cronometroAtaque <= 0)
-        {
-            Atacar();
-            cronometroAtaque = 5f;
-        }
     }
 
     void Atacar()
     {
-        VidaPlayer.estaSendoAtacado = true;
+        if(gameObject.CompareTag("PoderX1"))
+            VidaPlayer.estaSendoAtacadoX1 = true;
+        else if(gameObject.CompareTag("PoderX2"))
+            VidaPlayer.estaSendoAtacadoX2 = true;
+
         laser.SetActive(true);
         Invoke("Fim", 4f);
     }
