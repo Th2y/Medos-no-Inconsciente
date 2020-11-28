@@ -23,7 +23,7 @@ public class Menu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            MouseCursorAparencia.mouseOn = true;
+            MouseCursorAparencia.MudarCursor(true);
             AbrirMenu();
         }
     }
@@ -46,7 +46,7 @@ public class Menu : MonoBehaviour
     public void FecharMenu()
     {
         menuFase.SetActive(false);
-        MouseCursorAparencia.mouseOn = false;
+        MouseCursorAparencia.MudarCursor(false);
         Invoke("Fechou", 1);
         Time.timeScale = 1f;
     }
@@ -73,8 +73,6 @@ public class Menu : MonoBehaviour
     //Deletar keys
     public void DeletarKeysFase1()
     {
-        PlayerPrefs.DeleteKey("ItemThay");
-        PlayerPrefs.DeleteKey("ItemMio");
         PlayerPrefs.DeleteKey("PegouCarta1");
         PlayerPrefs.DeleteKey("PegouCarta2");
         PlayerPrefs.DeleteKey("PegouCarta3");

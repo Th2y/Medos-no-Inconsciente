@@ -19,6 +19,7 @@ public class VidaPlayer : MonoBehaviour
 
     private int moedas;
     private int moedasGanhas = 0;
+    private bool acabou = false;
 
     void Start()
     {
@@ -49,18 +50,19 @@ public class VidaPlayer : MonoBehaviour
             LevarDanoX2(20);
             estaSendoAtacadoX2 = false;
         }
-        if (vidaAtual <= 0)
+        if (vidaAtual <= 0 && !acabou)
         {
             morte.Play();
 
-            moedasGanhas = Random.Range(1, 4);
+            moedasGanhas = Random.Range(1, 4);             
             moedas += moedasGanhas;
             PlayerPrefs.SetInt("Moedas", moedas);
             quantidadeMoedas.text = moedasGanhas.ToString();
 
-            MouseCursorAparencia.mouseOn = true;
+            MouseCursorAparencia.MudarCursor(true);
             perdeu.SetActive(true);
             Menu.instancia.DeletarKeysFase1();
+            acabou = true;
         }
 
         if (inimigo == null)
@@ -83,7 +85,7 @@ public class VidaPlayer : MonoBehaviour
 
     void Ganhou()
     {
-        MouseCursorAparencia.mouseOn = true;
+        MouseCursorAparencia.MudarCursor(true);
         ganhou.SetActive(true);
     }
 

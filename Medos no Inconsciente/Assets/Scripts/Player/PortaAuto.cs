@@ -1,14 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class PortaAuto : MonoBehaviour
 {
     public GameObject portaAberta, portaFechada;
     public GameObject portaAtual;
     public GameObject inimigo;
-    public Text aviso;
 
     public static bool ganhou;
 
@@ -24,7 +20,6 @@ public class PortaAuto : MonoBehaviour
         ganhou = false;
         numObjDentro = 0;
         posInicial = portaFechada.transform.localPosition;
-        aviso.gameObject.SetActive(false);
     }
 
     void Update()

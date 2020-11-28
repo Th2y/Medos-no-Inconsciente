@@ -7,7 +7,6 @@ public class Alvo : MonoBehaviour
     public int vidaAtual;
     public static bool podeAtirar = true;
 
-    public VidaSlider vidaSlider;
     public AudioSource morte, musicaDepoisMorteInimigo, pausarMusicaAntes;
 
     [SerializeField] private DissolveEffect dissolveEffect;
@@ -15,7 +14,6 @@ public class Alvo : MonoBehaviour
     [ColorUsageAttribute(true, true)]
     [SerializeField] private Color startDissolveColor;
     [SerializeField] private GameObject inimigo;
-    [SerializeField] private GameObject canvas;
 
     private void Start()
     {
@@ -27,13 +25,11 @@ public class Alvo : MonoBehaviour
             vidaMax = 100;
 
         vidaAtual = vidaMax;
-        vidaSlider.MaxVida(vidaMax);
     }
 
     public void LevarDano(int dano)
     {
         vidaAtual -= dano;
-        vidaSlider.EscolherVida(vidaAtual);
     }
 
     private void Update()
@@ -54,7 +50,6 @@ public class Alvo : MonoBehaviour
             Medalhas.terminou = true;
         }
         inimigo.GetComponent<NavMeshAgent>().enabled = false;
-        canvas.SetActive(false);
         dissolveEffect.ComecarDissolver(.7f, startDissolveColor);
         Destroy(inimigo, 2f);
     }
