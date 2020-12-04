@@ -35,9 +35,7 @@ public class Alvo : MonoBehaviour
     private void Update()
     {
         if (vidaAtual <= 0f)
-        {
             Morte();
-        }
     }
 
     void Morte()

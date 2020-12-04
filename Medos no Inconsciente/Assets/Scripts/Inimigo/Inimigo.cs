@@ -12,6 +12,7 @@ public class Inimigo : MonoBehaviour
     public bool estaAtacando = false;
     public GameObject laser;
     public bool podeAtacar = false;
+    [SerializeField] private Animator animInimigo;
 
     void Start()
     {        
@@ -50,13 +51,15 @@ public class Inimigo : MonoBehaviour
 
     void Atacar()
     {
-        if(gameObject.CompareTag("PoderX1"))
+        animInimigo.SetBool("atacando", true);
+        if (gameObject.CompareTag("PoderX1"))
             VidaPlayer.estaSendoAtacadoX1 = true;
         else if(gameObject.CompareTag("PoderX2"))
             VidaPlayer.estaSendoAtacadoX2 = true;
 
         laser.SetActive(true);
         Invoke("Fim", 4f);
+        animInimigo.SetBool("atacando", false);
     }
 
     void Fim()
