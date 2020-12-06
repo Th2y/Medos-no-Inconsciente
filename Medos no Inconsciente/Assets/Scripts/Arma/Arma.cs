@@ -109,8 +109,14 @@ public class Arma : MonoBehaviour
         {
             Alvo alvo = hit.transform.GetComponent<Alvo>();
             if(alvo != null)
-            {
                 alvo.LevarDano((int)dano);
+
+            Caixa caixa = hit.transform.GetComponent<Caixa>();
+            if (caixa != null)
+            {
+                caixa.Destruir();
+                quantidadeBalas++;
+                balasGastas--;
             }
 
             animTiro.SetInteger("AnimTiro", 1);

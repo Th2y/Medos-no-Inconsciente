@@ -19,7 +19,7 @@ public class Inimigo : MonoBehaviour
         naveMesh = GetComponent<NavMeshAgent>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 direcao = player.transform.position - transform.position;
         Vector3 distanciajogador = new Vector3(player.transform.position.x - 30, player.transform.position.y, player.transform.position.z);
