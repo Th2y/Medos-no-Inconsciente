@@ -918,6 +918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6338784257287740622}
+  alvo: {fileID: 0}
   naveMesh: {fileID: 177354387}
   disMinSeguir: 10
   distanciaPlayer: 10
@@ -6394,7 +6395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12961959a2483c44bc89d18ee445028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lr: {fileID: 0}
   player: {fileID: 1485903334}
   laser: {fileID: 2075900810}
 --- !u!120 &294624868
@@ -7364,7 +7364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12961959a2483c44bc89d18ee445028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lr: {fileID: 0}
   player: {fileID: 1485903334}
   laser: {fileID: 2075900810}
 --- !u!120 &387502597
@@ -9159,7 +9158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12961959a2483c44bc89d18ee445028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lr: {fileID: 0}
   player: {fileID: 1485903334}
   laser: {fileID: 2075900810}
 --- !u!120 &709417557
@@ -11549,7 +11547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12961959a2483c44bc89d18ee445028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lr: {fileID: 0}
   player: {fileID: 1485903334}
   laser: {fileID: 2075900810}
 --- !u!120 &1011375302
@@ -12118,7 +12115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12961959a2483c44bc89d18ee445028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lr: {fileID: 0}
   player: {fileID: 1485903334}
   laser: {fileID: 2075900810}
 --- !u!120 &1089712576
@@ -14002,7 +13998,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12961959a2483c44bc89d18ee445028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lr: {fileID: 0}
   player: {fileID: 1485903334}
   laser: {fileID: 2075900810}
 --- !u!120 &1291681776
@@ -17392,12 +17387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9633bd2dfc8304fb66748cdcb5976b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inimigosFracos:
-  - {fileID: 1252940348}
-  - {fileID: 377402662}
-  - {fileID: 2135123118}
-  - {fileID: 1648194181}
-  - {fileID: 151268213}
+  inimigosFracos: []
   inimigosFortes: []
 --- !u!1 &1694296259
 GameObject:
@@ -18544,6 +18534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6338784257287740622}
+  alvo: {fileID: 0}
   naveMesh: {fileID: 1764191440}
   disMinSeguir: 10
   distanciaPlayer: 10
@@ -20321,7 +20312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12961959a2483c44bc89d18ee445028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lr: {fileID: 0}
   player: {fileID: 1485903334}
   laser: {fileID: 2075900810}
 --- !u!120 &1932431917
@@ -24672,7 +24662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &7664991933835074547
 MeshCollider:
   m_ObjectHideFlags: 0
