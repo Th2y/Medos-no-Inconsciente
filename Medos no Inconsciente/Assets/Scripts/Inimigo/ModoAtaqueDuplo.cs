@@ -41,12 +41,13 @@ public class ModoAtaqueDuplo : ModoAbstratoForte
             Atacar(obj);
             Atacar(obj);
             obj.cronometroAtaque = obj.tempoAtacar;
+            Alvo.levouTiro = false;
         }
 
         float dist = Vector3.Distance(obj.player.position, obj.transform.position);
         if (dist >= 5)
             obj.TransicaoParaEstado(obj.EstadoPatrulha);
-        else if (Alvo.levouTiro)
+        else if (!Alvo.levouTiro)
             obj.TransicaoParaEstado(obj.EstadoAtaqueDuplo);
     }
 
