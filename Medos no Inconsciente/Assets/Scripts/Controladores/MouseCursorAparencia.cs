@@ -7,25 +7,21 @@ public class MouseCursorAparencia : MonoBehaviour
 {
     public Texture2D cursorMenu;
 
-    public static bool mouseOn;
-
     private void Start()
     {
         Cursor.SetCursor(cursorMenu, Vector2.zero, CursorMode.Auto);
         if (SceneManager.GetActiveScene().name == "Menu")
-            mouseOn = true;
+            MudarCursor(true);
         else
-            mouseOn = false;
+            MudarCursor(false);
     }
 
-    private void FixedUpdate()
+    public static void MudarCursor(bool mouseOn)
     {
-        {
-            if(!mouseOn)
-                Cursor.lockState = CursorLockMode.Locked;
-            else
-                Cursor.lockState = CursorLockMode.Confined;
-        }
+        if(!mouseOn)
+            Cursor.lockState = CursorLockMode.Locked;
+        else
+            Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void OnMouseEnter()

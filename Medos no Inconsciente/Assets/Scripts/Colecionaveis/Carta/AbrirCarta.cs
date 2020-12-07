@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.IO;
 using UnityEngine.SceneManagement;
 
 public class AbrirCarta : MonoBehaviour
@@ -12,11 +10,12 @@ public class AbrirCarta : MonoBehaviour
     public Text[] aviso;
     public GameObject panelCartas;
     public Text[] conteudoCartas;
-    private float tempo = 5f;
+    private float tempo = 2f;
     string[] cartasFase1;
     List<string> lista = new List<string>();
     public string nomeDaCena;
     public AudioSource abriuCarta, fechouCarta;
+    private GameObject luz;
 
     private void Awake()
     {
@@ -37,9 +36,8 @@ public class AbrirCarta : MonoBehaviour
     void Start()
     {
         if(nomeDaCena == "Fase1")
-        {
             conteudoCartas[0].text = "15/02/2019 Onde estou?!Não posso ficar aqui! Preciso encontrar minha irmã antes que seja tarde demais...";
-        }
+
         else
         {
             if (!PlayerPrefs.HasKey("CartasF1_1"))
@@ -153,6 +151,7 @@ public class AbrirCarta : MonoBehaviour
         {
             aviso[0].gameObject.SetActive(true);
             estaLendo = true;
+            luz = other.gameObject;
         }
     }
 
@@ -174,10 +173,9 @@ public class AbrirCarta : MonoBehaviour
             apertou = true;
             panelCartas.SetActive(true);
             aviso[1].gameObject.SetActive(true);
-            if(nomeDaCena == "Fase1")
-            {
+
+            if(nomeDaCena != "Menu" && nomeDaCena != "Carregamento")
                 conteudoCartas[0].gameObject.SetActive(true);
-            }
             else
             {
                 if (a == 0)
@@ -212,12 +210,13 @@ public class AbrirCarta : MonoBehaviour
             Time.timeScale = 0f;
             a++;
             mus = true;
+            LuzCarta.instancia.ApagarCarta();
         }
 
         if (tempo <= 0f || apertou)
         {
             aviso[0].gameObject.SetActive(false);
-            tempo = 5f;
+            tempo = 2f;
         }
     }
 }
