@@ -9,11 +9,10 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private Text[] conteudoCartas;
     [SerializeField] private Text[] aviso;
     [SerializeField] private AudioSource abriuCarta, fechouCarta;
-    [SerializeField] private GameObject luz;
     [SerializeField] private GameObject[] colisor;
     [SerializeField] private Collider col1;
     private int a = 0;
-    private bool apertou = false, leu = false, mus = false, estaLendo = true, iniciou = true;
+    private bool apertou = false, leu = false, mus = false, estaLendo = true, iniciou = true, ultima = false;
 
     private void Start()
     {
@@ -38,6 +37,10 @@ public class Tutorial : MonoBehaviour
             panelCartas.SetActive(false);
             aviso[1].gameObject.SetActive(false);
             aviso[2].gameObject.SetActive(false);
+            if(!ultima)
+                aviso[3].gameObject.SetActive(true);
+            else
+                aviso[3].gameObject.SetActive(false);
             Time.timeScale = 1f;
             mus = false;
             AcabouLeitura();
@@ -49,8 +52,8 @@ public class Tutorial : MonoBehaviour
         if (other.gameObject.CompareTag("Carta"))
         {
             aviso[0].gameObject.SetActive(true);
+            aviso[3].gameObject.SetActive(false);
             estaLendo = true;
-            luz = other.gameObject;
         }
     }
 
@@ -96,7 +99,10 @@ public class Tutorial : MonoBehaviour
             else if (a == 4)
                 conteudoCartas[4].gameObject.SetActive(true);
             else if (a == 5)
+            {
                 conteudoCartas[5].gameObject.SetActive(true);
+                ultima = true;
+            }
 
             estaLendo = false;
 

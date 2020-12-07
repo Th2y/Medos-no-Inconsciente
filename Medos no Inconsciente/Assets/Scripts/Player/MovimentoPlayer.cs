@@ -6,7 +6,6 @@ public class MovimentoPlayer : MonoBehaviour
 {
     public CharacterController controle;
     public float velocidade = 12f;
-    public LayerMask chaoMascara;
     public AudioSource andar;
 
     void Update()

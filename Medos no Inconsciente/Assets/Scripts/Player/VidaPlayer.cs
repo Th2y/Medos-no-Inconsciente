@@ -11,28 +11,22 @@ public class VidaPlayer : MonoBehaviour
     public static bool estaSendoAtacadoX2 = false;
 
     public GameObject ganhou;
-    public GameObject inimigo;
+    public static int inimigo;
+    public GameObject[] inimigos;
     public GameObject perdeu;
     public VidaSlider vidaSlider;
-    public Text quantidadeMoedas;
     public AudioSource morte;
 
-    private int moedas;
-    private int moedasGanhas = 0;
     private bool acabou = false;
 
     void Start()
     {
-        if (PlayerPrefs.HasKey("Moedas"))
-            moedas = PlayerPrefs.GetInt("Moedas");
-        else
-            moedas = 0;
-
         ganhou.SetActive(false);
         perdeu.SetActive(false);
         vidaAtual = vidaMax;
         vidaSlider.MaxVida(vidaMax);
         PlayerPrefs.SetString("Mudou", "false");
+        inimigo = inimigos.Length;
     }
 
     void Update()
@@ -54,18 +48,13 @@ public class VidaPlayer : MonoBehaviour
         {
             morte.Play();
 
-            moedasGanhas = Random.Range(1, 4);             
-            moedas += moedasGanhas;
-            PlayerPrefs.SetInt("Moedas", moedas);
-            quantidadeMoedas.text = moedasGanhas.ToString();
-
             MouseCursorAparencia.MudarCursor(true);
             perdeu.SetActive(true);
             Menu.instancia.DeletarKeysFase1();
             acabou = true;
         }
 
-        if (inimigo == null)
+        if (inimigo <= 0)
             ganhou.SetActive(true);
     }
 

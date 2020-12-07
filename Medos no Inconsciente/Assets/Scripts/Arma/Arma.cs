@@ -114,6 +114,7 @@ public class Arma : MonoBehaviour
             Caixa caixa = hit.transform.GetComponent<Caixa>();
             if (caixa != null)
             {
+                Debug.Log("Caixa achada");
                 caixa.Destruir();
                 quantidadeBalas++;
                 balasGastas--;

@@ -3,8 +3,6 @@
 public class PortaAuto : MonoBehaviour
 {
     public GameObject portaAberta, portaFechada;
-    public GameObject portaAtual;
-    public GameObject inimigo;
 
     public static bool ganhou;
 
@@ -25,9 +23,7 @@ public class PortaAuto : MonoBehaviour
     void Update()
     {
         if (numObjDentro > 0)
-        {
             portaFechada.transform.localPosition = Vector3.Lerp(portaFechada.transform.localPosition, portaAberta.transform.localPosition, velocidade * Time.deltaTime);
-        }
         else
             portaFechada.transform.localPosition = Vector3.Lerp(portaFechada.transform.localPosition, posInicial, velocidade * Time.deltaTime);              
     }
