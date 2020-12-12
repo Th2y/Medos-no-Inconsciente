@@ -6,16 +6,24 @@ public class PlayerNaAreaDeAtaque : MonoBehaviour
 {
     public GameObject[] inimigosFracos;
     public GameObject[] inimigosFortes;
+    public static int fracos, fortes;
+
+    private void Start()
+    {
+        fracos = inimigosFracos.Length;
+        fortes = inimigosFortes.Length;
+    }
 
     private void OnTriggerStay(Collider other)
     {
-        if (inimigosFracos != null)
+        if (inimigosFracos.Length > 0)
         {
             if (other.gameObject.CompareTag("Player"))
             {
                 for (int i = 0; i < inimigosFracos.Length; i++)
                 {
-                    inimigosFracos[i].GetComponent<InimigoFraco>().areaAtaque = true;
+                    if (inimigosFracos[i] != null)
+                        inimigosFracos[i].GetComponent<InimigoFraco>().areaAtaque = true;
                 }
             }
         }
@@ -25,9 +33,10 @@ public class PlayerNaAreaDeAtaque : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                for (int i = 0; i < inimigosFracos.Length; i++)
+                for (int i = 0; i < inimigosFortes.Length; i++)
                 {
-                    inimigosFortes[i].GetComponent<InimigoForte>().areaAtaque = true;
+                    if (inimigosFortes[i] != null)
+                        inimigosFortes[i].GetComponent<InimigoForte>().areaAtaque = true;
                 }
             }
         }
@@ -35,23 +44,25 @@ public class PlayerNaAreaDeAtaque : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(inimigosFracos != null)
+        if(inimigosFracos.Length > 0)
         {
             if (other.gameObject.CompareTag("Player"))
             {
                 for (int i = 0; i < inimigosFracos.Length; i++)
                 {
-                    inimigosFracos[i].GetComponent<InimigoFraco>().areaAtaque = false;
+                    if (inimigosFracos[i] != null)
+                        inimigosFracos[i].GetComponent<InimigoFraco>().areaAtaque = false;
                 }
             }
         }
-        if(inimigosFortes != null)
+        if(inimigosFortes.Length > 0)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                for (int i = 0; i < inimigosFracos.Length; i++)
+                for (int i = 0; i < inimigosFortes.Length; i++)
                 {
-                    inimigosFortes[i].GetComponent<InimigoFraco>().areaAtaque = false;
+                    if(inimigosFortes[i] != null)
+                        inimigosFortes[i].GetComponent<InimigoForte>().areaAtaque = false;
                 }
             }
         }

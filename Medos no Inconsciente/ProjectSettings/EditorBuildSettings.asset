@@ -11,10 +11,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Carregamento.unity
     guid: aac5985ae7db1fe48b481665e2d84aff
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Fases/Fase1.unity
-    guid: 9cd4e2d07ffd141429ca90d91fba9a77
+    guid: 4e728547231d9eb44a513beab27cb774
   - enabled: 1
     path: Assets/Scenes/Fases/Fase2.unity
     guid: d402d7b43f70d354c84a51eafadca758
+  - enabled: 1
+    path: Assets/Scenes/Fases/Fase3.unity
+    guid: da3b3df474cfd8d44a9dd5a42a2e0752
+  - enabled: 1
+    path: Assets/Scenes/Fases/Fase4.unity
+    guid: befec7ed3c936fa42a25cc0b123ddb82
+  - enabled: 1
+    path: Assets/Scenes/Fases/Fase5.unity
+    guid: 12929283d39c6f745b31b484774cdef4
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

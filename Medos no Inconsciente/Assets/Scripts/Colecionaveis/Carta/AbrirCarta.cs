@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class AbrirCarta : MonoBehaviour
 {
-    private int num, a = 0, cartasF1;
+    private int num, a = 0, cartasF1, cartasF2, cartasF3, cartasF4;
     private bool apertou = false, leu = false, mus = false, estaLendo = false;
     public Text[] aviso;
     public GameObject panelCartas;
@@ -65,17 +65,9 @@ public class AbrirCarta : MonoBehaviour
 
     void Start()
     {
-        if(nomeDaCena == "Fase2")
-            conteudoCartas[0].text = "15/02/2019 Onde estou?!Não posso ficar aqui! Preciso encontrar minha irmã antes que seja tarde demais...";
-        else if (nomeDaCena == "Fase3")
-            conteudoCartas[0].text = "15/02/2019 Onde estou?!Não posso ficar aqui! Preciso encontrar minha irmã antes que seja tarde demais...";
-        else if (nomeDaCena == "Fase4")
-            conteudoCartas[0].text = "15/02/2019 Onde estou?!Não posso ficar aqui! Preciso encontrar minha irmã antes que seja tarde demais...";
-        else if (nomeDaCena == "Fase5")
-            conteudoCartas[0].text = "15/02/2019 Onde estou?!Não posso ficar aqui! Preciso encontrar minha irmã antes que seja tarde demais...";
-
-        else
+        if (nomeDaCena == "Fase2")
         {
+
             if (!PlayerPrefs.HasKey("CartasF1_1"))
             {
                 do
@@ -135,7 +127,196 @@ public class AbrirCarta : MonoBehaviour
                     num++;
                 } while (num < 5);
             }
-        }        
+        }
+        else if (nomeDaCena == "Fase3")
+        {
+
+            if (!PlayerPrefs.HasKey("CartasF2_1"))
+            {
+                do
+                {
+                    if (num == 0)
+                    {
+                        cartasF2 = Random.Range(0, 4);
+                        PlayerPrefs.SetString("CartasF2_1", lista[cartasF2]);
+                        conteudoCartas[0].text = PlayerPrefs.GetString("CartasF2_1");
+                        lista.RemoveAt(cartasF2);
+                    }
+                    else if (num == 1)
+                    {
+                        cartasF2 = Random.Range(0, 3);
+                        PlayerPrefs.SetString("CartasF2_2", lista[cartasF2]);
+                        conteudoCartas[1].text = PlayerPrefs.GetString("CartasF2_2");
+                        lista.RemoveAt(cartasF2);
+                    }
+                    else if (num == 2)
+                    {
+                        cartasF2 = Random.Range(0, 2);
+                        PlayerPrefs.SetString("CartasF2_3", lista[cartasF2]);
+                        conteudoCartas[2].text = PlayerPrefs.GetString("CartasF2_3");
+                        lista.RemoveAt(cartasF2);
+                    }
+                    else if (num == 3)
+                    {
+                        cartasF2 = Random.Range(0, 1);
+                        PlayerPrefs.SetString("CartasF2_4", lista[cartasF2]);
+                        conteudoCartas[3].text = PlayerPrefs.GetString("CartasF2_4");
+                        lista.RemoveAt(cartasF2);
+                    }
+                    else if (num == 4)
+                    {
+                        PlayerPrefs.SetString("CartasF2_5", lista[0]);
+                        conteudoCartas[4].text = PlayerPrefs.GetString("CartasF2_5");
+                    }
+                    num++;
+                } while (num < 5);
+            }
+
+            else
+            {
+                do
+                {
+                    if (num == 0)
+                        conteudoCartas[0].text = PlayerPrefs.GetString("CartasF2_1");
+                    else if (num == 1)
+                        conteudoCartas[1].text = PlayerPrefs.GetString("CartasF2_2");
+                    else if (num == 2)
+                        conteudoCartas[2].text = PlayerPrefs.GetString("CartasF2_3");
+                    else if (num == 3)
+                        conteudoCartas[3].text = PlayerPrefs.GetString("CartasF2_4");
+                    else if (num == 4)
+                        conteudoCartas[4].text = PlayerPrefs.GetString("CartasF2_5");
+
+                    num++;
+                } while (num < 5);
+            }
+        }
+        else if (nomeDaCena == "Fase4")
+        {
+
+            if (!PlayerPrefs.HasKey("CartasF3_1"))
+            {
+                do
+                {
+                    if (num == 0)
+                    {
+                        cartasF3 = Random.Range(0, 4);
+                        PlayerPrefs.SetString("CartasF3_1", lista[cartasF3]);
+                        conteudoCartas[0].text = PlayerPrefs.GetString("CartasF3_1");
+                        lista.RemoveAt(cartasF3);
+                    }
+                    else if (num == 1)
+                    {
+                        cartasF3 = Random.Range(0, 3);
+                        PlayerPrefs.SetString("CartasF3_2", lista[cartasF3]);
+                        conteudoCartas[1].text = PlayerPrefs.GetString("CartasF3_2");
+                        lista.RemoveAt(cartasF3);
+                    }
+                    else if (num == 2)
+                    {
+                        cartasF3 = Random.Range(0, 2);
+                        PlayerPrefs.SetString("CartasF3_3", lista[cartasF3]);
+                        conteudoCartas[2].text = PlayerPrefs.GetString("CartasF3_3");
+                        lista.RemoveAt(cartasF3);
+                    }
+                    else if (num == 3)
+                    {
+                        cartasF3 = Random.Range(0, 1);
+                        PlayerPrefs.SetString("CartasF3_4", lista[cartasF2]);
+                        conteudoCartas[3].text = PlayerPrefs.GetString("CartasF3_4");
+                        lista.RemoveAt(cartasF3);
+                    }
+                    else if (num == 4)
+                    {
+                        PlayerPrefs.SetString("CartasF3_5", lista[0]);
+                        conteudoCartas[4].text = PlayerPrefs.GetString("CartasF3_5");
+                    }
+                    num++;
+                } while (num < 5);
+            }
+
+            else
+            {
+                do
+                {
+                    if (num == 0)
+                        conteudoCartas[0].text = PlayerPrefs.GetString("CartasF3_1");
+                    else if (num == 1)
+                        conteudoCartas[1].text = PlayerPrefs.GetString("CartasF3_2");
+                    else if (num == 2)
+                        conteudoCartas[2].text = PlayerPrefs.GetString("CartasF3_3");
+                    else if (num == 3)
+                        conteudoCartas[3].text = PlayerPrefs.GetString("CartasF3_4");
+                    else if (num == 4)
+                        conteudoCartas[4].text = PlayerPrefs.GetString("CartasF3_5");
+
+                    num++;
+                } while (num < 5);
+            }
+        }
+        else if (nomeDaCena == "Fase5")
+        {
+
+            if (!PlayerPrefs.HasKey("CartasF4_1"))
+            {
+                do
+                {
+                    if (num == 0)
+                    {
+                        cartasF3 = Random.Range(0, 4);
+                        PlayerPrefs.SetString("CartasF4_1", lista[cartasF4]);
+                        conteudoCartas[0].text = PlayerPrefs.GetString("CartasF4_1");
+                        lista.RemoveAt(cartasF4);
+                    }
+                    else if (num == 1)
+                    {
+                        cartasF4 = Random.Range(0, 3);
+                        PlayerPrefs.SetString("CartasF4_2", lista[cartasF4]);
+                        conteudoCartas[1].text = PlayerPrefs.GetString("CartasF4_2");
+                        lista.RemoveAt(cartasF4);
+                    }
+                    else if (num == 2)
+                    {
+                        cartasF4 = Random.Range(0, 2);
+                        PlayerPrefs.SetString("CartasF4_3", lista[cartasF4]);
+                        conteudoCartas[2].text = PlayerPrefs.GetString("CartasF4_3");
+                        lista.RemoveAt(cartasF4);
+                    }
+                    else if (num == 3)
+                    {
+                        cartasF4 = Random.Range(0, 1);
+                        PlayerPrefs.SetString("Cartas43_4", lista[cartasF4]);
+                        conteudoCartas[3].text = PlayerPrefs.GetString("CartasF4_4");
+                        lista.RemoveAt(cartasF4);
+                    }
+                    else if (num == 4)
+                    {
+                        PlayerPrefs.SetString("CartasF4_5", lista[0]);
+                        conteudoCartas[4].text = PlayerPrefs.GetString("CartasF4_5");
+                    }
+                    num++;
+                } while (num < 5);
+            }
+
+            else
+            {
+                do
+                {
+                    if (num == 0)
+                        conteudoCartas[0].text = PlayerPrefs.GetString("CartasF4_1");
+                    else if (num == 1)
+                        conteudoCartas[1].text = PlayerPrefs.GetString("CartasF4_2");
+                    else if (num == 2)
+                        conteudoCartas[2].text = PlayerPrefs.GetString("CartasF4_3");
+                    else if (num == 3)
+                        conteudoCartas[3].text = PlayerPrefs.GetString("CartasF4_4");
+                    else if (num == 4)
+                        conteudoCartas[4].text = PlayerPrefs.GetString("CartasF4_5");
+
+                    num++;
+                } while (num < 5);
+            }
+        }
 
         aviso[0].gameObject.SetActive(false);
         aviso[1].gameObject.SetActive(false);
@@ -151,7 +332,7 @@ public class AbrirCarta : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire2") && mus)
         {
-            if(nomeDaCena == "Fase1")
+            if(nomeDaCena == "Fase1" || nomeDaCena == "Fase2" || nomeDaCena == "Fase3" || nomeDaCena == "Fase4")
             {
                 fechouCarta.Play();
                 leu = true;
@@ -212,7 +393,7 @@ public class AbrirCarta : MonoBehaviour
 
             if(nomeDaCena != "Menu" && nomeDaCena != "Carregamento")
                 conteudoCartas[0].gameObject.SetActive(true);
-            else
+            else if(nomeDaCena == "Fase2")
             {
                 if (a == 0)
                 {
@@ -240,7 +421,91 @@ public class AbrirCarta : MonoBehaviour
                     PlayerPrefs.SetString("PegouCarta5", "Sim");
                 }
             }
-            
+            else if (nomeDaCena == "Fase3")
+            {
+                if (a == 0)
+                {
+                    conteudoCartas[0].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta6", "Sim");
+                }
+                else if (a == 1)
+                {
+                    conteudoCartas[1].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta7", "Sim");
+                }
+                else if (a == 2)
+                {
+                    conteudoCartas[2].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta8", "Sim");
+                }
+                else if (a == 3)
+                {
+                    conteudoCartas[3].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta9", "Sim");
+                }
+                else if (a == 4)
+                {
+                    conteudoCartas[4].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta10", "Sim");
+                }
+            }
+            else if (nomeDaCena == "Fase4")
+            {
+                if (a == 0)
+                {
+                    conteudoCartas[0].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta11", "Sim");
+                }
+                else if (a == 1)
+                {
+                    conteudoCartas[1].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta12", "Sim");
+                }
+                else if (a == 2)
+                {
+                    conteudoCartas[2].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta13", "Sim");
+                }
+                else if (a == 3)
+                {
+                    conteudoCartas[3].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta14", "Sim");
+                }
+                else if (a == 4)
+                {
+                    conteudoCartas[4].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta15", "Sim");
+                }
+            }
+            else if (nomeDaCena == "Fase5")
+            {
+                if (a == 0)
+                {
+                    conteudoCartas[0].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta16", "Sim");
+                }
+                else if (a == 1)
+                {
+                    conteudoCartas[1].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta17", "Sim");
+                }
+                else if (a == 2)
+                {
+                    conteudoCartas[2].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta18", "Sim");
+                }
+                else if (a == 3)
+                {
+                    conteudoCartas[3].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta19", "Sim");
+                }
+                else if (a == 4)
+                {
+                    conteudoCartas[4].gameObject.SetActive(true);
+                    PlayerPrefs.SetString("PegouCarta20", "Sim");
+                }
+            }
+
             estaLendo = false;
 
             Time.timeScale = 0f;

@@ -10,25 +10,25 @@ public class ModoPatrulharForte : ModoAbstratoForte
 
     public override void Update(InimigoForte obj)
     {
-        obj.animInimigo.SetBool("atacando", false);
-
-        Vector3 direcao = obj.player.transform.position - obj.transform.position;
-
-        Vector3 disPlayer = new Vector3(obj.player.transform.position.x - obj.disMinSeguir, obj.transform.position.y, obj.transform.position.z);
-        obj.naveMesh.destination = disPlayer;
-        obj.distanciaPlayer = Vector3.Distance(obj.player.transform.position, obj.transform.position);
-
-        Quaternion novaRotacao = Quaternion.LookRotation(direcao);
-        obj.transform.rotation = Quaternion.Slerp(obj.transform.rotation, novaRotacao, Time.deltaTime * 1);
-
-        if (obj.player)
+        if (obj != null)
         {
-            float dist = Vector3.Distance(obj.player.position, obj.transform.position);
-            if (Alvo.levouTiro)
-                obj.TransicaoParaEstado(obj.EstadoAtaqueDuplo);
-            else if (dist < 5)
-                obj.TransicaoParaEstado(obj.EstadoAtacar);
-        }
+            obj.animInimigo.SetBool("atacando", false);
 
+            Vector3 disPlayer = new Vector3(obj.player.transform.position.x - obj.disMinSeguir, obj.transform.position.y, obj.transform.position.z);
+            obj.naveMesh.destination = disPlayer;
+            obj.distanciaPlayer = Vector3.Distance(obj.player.transform.position, obj.transform.position);
+
+            if (obj.player)
+            {
+                float dist = Vector3.Distance(obj.player.position, obj.transform.position);
+                if (obj.alvo.levouTiro)
+                {
+                    obj.estaAtacandoDuplo = true;
+                    obj.TransicaoParaEstado(obj.EstadoAtaqueDuplo);
+                }
+                else if (dist < 5)
+                    obj.TransicaoParaEstado(obj.EstadoAtacar);
+            }
+        }
     }
 }

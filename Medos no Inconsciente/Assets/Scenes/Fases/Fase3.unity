@@ -491,7 +491,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 181278452}
-        m_MethodName: Venceu
+        m_MethodName: CarregarFase4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6523,7 +6523,7 @@ RectTransform:
   - {fileID: 1373730768}
   - {fileID: 1869000990}
   m_Father: {fileID: 2072528985}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6854,8 +6854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 83.3}
-  m_SizeDelta: {x: 836.9, y: 131.33}
+  m_AnchoredPosition: {x: 0, y: 56.1}
+  m_SizeDelta: {x: 836.9, y: 185.74815}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &307072400
 MonoBehaviour:
@@ -6889,10 +6889,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Quando atirei no \xFAltimo monstro, minha vis\xE3o escureceu. Era como
-    se todo o quarto tivesse ficado escuro. E, como um ponto de luz iluminado ao
-    canto, vi meu pai aparecer em minha frente. Ele parecia fraco, abalado, e seus
-    olhos pareciam cansados.\r"
+  m_Text: "Assim como da primeira vez, quando os monstros foram abatidos, vi outro
+    daquele ponto de luz. Contudo, dessa vez, trazia a imagem de minha m\xE3e, com
+    suas duas m\xE3os ao rosto, a chorar. Eu me aproximei dela, tentei tocar, mas
+    n\xE3o havia no que encostar. Ela apenas olhou para mim, com aqueles olhos tristonhos
+    que ela costumava fazer desde quando\u2026 aquilo aconteceu."
 --- !u!222 &307072401
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7304,7 +7305,7 @@ RectTransform:
   - {fileID: 590823182}
   - {fileID: 1969142549}
   m_Father: {fileID: 2072528985}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9068,7 +9069,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fase 1
+  m_Text: Fase 2
 --- !u!222 &586572504
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11048,7 +11049,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2072528985}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11792,84 +11793,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &950128212
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 950128213}
-  - component: {fileID: 950128215}
-  - component: {fileID: 950128214}
-  m_Layer: 5
-  m_Name: Text4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &950128213
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950128212}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1974576911}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -187}
-  m_SizeDelta: {x: 836.9, y: 48.86}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &950128214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950128212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.654902, g: 0.654902, b: 0.654902, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 4ee0a80933965124f95dbdf6b2e2c29f, type: 3}
-    m_FontSize: 20
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 60
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\u201CEu o salvei?\u201D"
---- !u!222 &950128215
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950128212}
-  m_CullTransparentMesh: 0
 --- !u!1 &960566807
 GameObject:
   m_ObjectHideFlags: 0
@@ -14660,7 +14583,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 181278452}
-        m_MethodName: CarregarFase1
+        m_MethodName: CarregarFase3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15425,7 +15348,7 @@ RectTransform:
   - {fileID: 894398171}
   - {fileID: 969092998}
   m_Father: {fileID: 2072528985}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15880,8 +15803,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -103}
-  m_SizeDelta: {x: 836.9, y: 86.57}
+  m_AnchoredPosition: {x: 0, y: -156.8}
+  m_SizeDelta: {x: 836.9, y: 130.52066}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1374782029
 MonoBehaviour:
@@ -15915,9 +15838,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Sua voz soava distante, quase inaud\xEDvel, e me trazia uma tristeza estranha.
-    Quando tentei o tocar, ele sumiu em minha frente e uma mistura de sentimentos
-    me atingiu."
+  m_Text: "E, t\xE3o de repente como veio, ela sumiu em minha frente, me deixando
+    com mais perguntas em mente. Eu n\xE3o entendia o que estava acontecendo comigo,
+    com meus pais, e com aquele lugar, mas a \xFAnica certeza que eu tinha era que
+    eu deveria continuar tentando."
 --- !u!222 &1374782030
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16135,7 +16059,7 @@ RectTransform:
   - {fileID: 1974576911}
   - {fileID: 1849484533}
   m_Father: {fileID: 2072528985}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -16997,7 +16921,7 @@ RectTransform:
   - {fileID: 1281216725}
   - {fileID: 1004805350}
   m_Father: {fileID: 2072528985}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -19273,7 +19197,7 @@ RectTransform:
   - {fileID: 156025108}
   - {fileID: 2123885663}
   m_Father: {fileID: 2072528985}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -19943,7 +19867,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1974576911}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -21000,8 +20924,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -21}
-  m_SizeDelta: {x: 836.9, y: 49.77}
+  m_AnchoredPosition: {x: 0, y: -65}
+  m_SizeDelta: {x: 853.55115, y: 35.89403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1847438534
 MonoBehaviour:
@@ -21035,8 +20959,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u201CVoc\xEA conseguiu, Nicolas. Eu sempre soube que voc\xEA conseguiria,
-    meu filho\u201D."
+  m_Text: "\u201CPor favor, Nicolas, voc\xEA precisa encontr\xE1-la. Voc\xEA precisa
+    saber a verdade.\u201D"
 --- !u!222 &1847438535
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22424,7 +22348,6 @@ RectTransform:
   - {fileID: 307072399}
   - {fileID: 1847438533}
   - {fileID: 1374782028}
-  - {fileID: 950128213}
   - {fileID: 1766756253}
   m_Father: {fileID: 1389816738}
   m_RootOrder: 0
@@ -23553,14 +23476,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 843606027}
   - {fileID: 330580862}
   - {fileID: 240090514}
   - {fileID: 1719187462}
   - {fileID: 1339851215}
-  - {fileID: 1389816738}
   - {fileID: 748814205}
+  - {fileID: 1389816738}
   - {fileID: 1537901993}
-  - {fileID: 843606027}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25809,6 +25732,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMax: 100
   vidaAtual: 0
+  inimigo: 0
+  estaSendoAtacado: 0
   ganhou: {fileID: 1389816737}
   inimigos:
   - {fileID: 1252940348}
@@ -26345,7 +26270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &7664991933835074547
 MeshCollider:
   m_ObjectHideFlags: 0

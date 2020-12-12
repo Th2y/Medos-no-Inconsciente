@@ -27,6 +27,12 @@ public class InimigoFraco : MonoBehaviour
 
     void Update()
     {
+        Vector3 direcao = player.transform.position - transform.position;
+        Quaternion novaRotacao = Quaternion.LookRotation(direcao);
+        transform.rotation = Quaternion.Slerp(transform.rotation, novaRotacao, Time.deltaTime * 1);
+
+        naveMesh.updateRotation = false;
+
         estadoAtual.Update(this);
     }
 

@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMax: 50
   vidaAtual: 0
+  levouTiro: 0
   morte: {fileID: 1785337416}
   musicaDepoisMorteInimigo: {fileID: 311510759}
   pausarMusicaAntes: {fileID: 2069737168}
@@ -610,7 +611,7 @@ MonoBehaviour:
   tempoAtacar: 2
   espereLaser: 1
   estaAtacando: 0
-  areaAtaque: 1
+  areaAtaque: 0
   laser: {fileID: 1011375300}
   animInimigo: {fileID: 625478294}
 --- !u!4 &151268216
@@ -918,7 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6338784257287740622}
-  alvo: {fileID: 0}
+  alvo: {fileID: 24451709}
   naveMesh: {fileID: 177354387}
   disMinSeguir: 10
   distanciaPlayer: 10
@@ -927,7 +928,7 @@ MonoBehaviour:
   tempoAtacar: 2
   espereLaser: 1
   estaAtacando: 0
-  areaAtaque: 1
+  areaAtaque: 0
   estaAtacandoDuplo: 0
   laser: {fileID: 294624865}
   animInimigo: {fileID: 24451713}
@@ -7271,7 +7272,7 @@ MonoBehaviour:
   tempoAtacar: 2
   espereLaser: 1
   estaAtacando: 0
-  areaAtaque: 1
+  areaAtaque: 0
   laser: {fileID: 1089712574}
   animInimigo: {fileID: 1759848945}
 --- !u!4 &377402665
@@ -8422,6 +8423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMax: 20
   vidaAtual: 0
+  levouTiro: 0
   morte: {fileID: 1785337416}
   musicaDepoisMorteInimigo: {fileID: 311510759}
   pausarMusicaAntes: {fileID: 2069737168}
@@ -8655,6 +8657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMax: 20
   vidaAtual: 0
+  levouTiro: 0
   morte: {fileID: 1785337416}
   musicaDepoisMorteInimigo: {fileID: 311510759}
   pausarMusicaAntes: {fileID: 2069737168}
@@ -11119,6 +11122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMax: 50
   vidaAtual: 0
+  levouTiro: 0
   morte: {fileID: 1785337416}
   musicaDepoisMorteInimigo: {fileID: 311510759}
   pausarMusicaAntes: {fileID: 2069737168}
@@ -13503,7 +13507,7 @@ MonoBehaviour:
   tempoAtacar: 2
   espereLaser: 1
   estaAtacando: 0
-  areaAtaque: 1
+  areaAtaque: 0
   laser: {fileID: 709417554}
   animInimigo: {fileID: 563057313}
 --- !u!4 &1252940351
@@ -13937,6 +13941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMax: 20
   vidaAtual: 0
+  levouTiro: 0
   morte: {fileID: 1785337416}
   musicaDepoisMorteInimigo: {fileID: 311510759}
   pausarMusicaAntes: {fileID: 2069737168}
@@ -15697,7 +15702,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inimigosFracos: []
-  inimigosFortes: []
+  inimigosFortes:
+  - {fileID: 1764191438}
+  - {fileID: 177354385}
 --- !u!4 &1485903334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1787813175832179541, guid: 636648011b505054bb182a60686171fa,
@@ -16274,6 +16281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMax: 20
   vidaAtual: 0
+  levouTiro: 0
   morte: {fileID: 1785337416}
   musicaDepoisMorteInimigo: {fileID: 311510759}
   pausarMusicaAntes: {fileID: 2069737168}
@@ -17141,7 +17149,7 @@ MonoBehaviour:
   tempoAtacar: 2
   espereLaser: 1
   estaAtacando: 0
-  areaAtaque: 1
+  areaAtaque: 0
   laser: {fileID: 1291681774}
   animInimigo: {fileID: 1578467120}
 --- !u!4 &1648194184
@@ -17461,7 +17469,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9633bd2dfc8304fb66748cdcb5976b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inimigosFracos: []
+  inimigosFracos:
+  - {fileID: 1252940348}
+  - {fileID: 377402662}
+  - {fileID: 2135123118}
+  - {fileID: 1648194181}
+  - {fileID: 151268213}
   inimigosFortes: []
 --- !u!1 &1694296259
 GameObject:
@@ -18434,6 +18447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaMax: 20
   vidaAtual: 0
+  levouTiro: 0
   morte: {fileID: 1785337416}
   musicaDepoisMorteInimigo: {fileID: 311510759}
   pausarMusicaAntes: {fileID: 2069737168}
@@ -18608,7 +18622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6338784257287740622}
-  alvo: {fileID: 0}
+  alvo: {fileID: 960892723}
   naveMesh: {fileID: 1764191440}
   disMinSeguir: 10
   distanciaPlayer: 10
@@ -18617,7 +18631,7 @@ MonoBehaviour:
   tempoAtacar: 2
   espereLaser: 1
   estaAtacando: 0
-  areaAtaque: 1
+  areaAtaque: 0
   estaAtacandoDuplo: 0
   laser: {fileID: 1932431914}
   animInimigo: {fileID: 960892727}
@@ -22432,7 +22446,7 @@ MonoBehaviour:
   tempoAtacar: 2
   espereLaser: 1
   estaAtacando: 0
-  areaAtaque: 1
+  areaAtaque: 0
   laser: {fileID: 387502595}
   animInimigo: {fileID: 1287922079}
 --- !u!4 &2135123121
@@ -24740,7 +24754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &7664991933835074547
 MeshCollider:
   m_ObjectHideFlags: 0

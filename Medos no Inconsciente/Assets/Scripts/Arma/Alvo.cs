@@ -5,7 +5,8 @@ public class Alvo : MonoBehaviour
 {
     public int vidaMax = 0;
     public int vidaAtual;
-    public static bool podeAtirar = true, levouTiro = false;
+    public static bool podeAtirar = true;
+    public bool levouTiro = false;
     public AudioSource morte, musicaDepoisMorteInimigo, pausarMusicaAntes;
 
     [SerializeField] private DissolveEffect dissolveEffect;
@@ -19,13 +20,6 @@ public class Alvo : MonoBehaviour
 
     private void Start()
     {
-        if (gameObject.CompareTag("PoderX1"))
-            vidaMax = 30;
-        else if (gameObject.CompareTag("PoderX2"))
-            vidaMax = 50;
-        else
-            vidaMax = 100;
-
         vidaAtual = vidaMax;
     }
 
@@ -60,6 +54,11 @@ public class Alvo : MonoBehaviour
     void Morte()
     {
         VidaPlayer.instancia.inimigo--;
+        if (gameObject.CompareTag("PoderX1"))
+            PlayerNaAreaDeAtaque.fracos--;
+        else if (gameObject.CompareTag("PoderX2"))
+            PlayerNaAreaDeAtaque.fortes--;
+        
         morte.Play();
         if(VidaPlayer.instancia.inimigo <= 0)
         {
