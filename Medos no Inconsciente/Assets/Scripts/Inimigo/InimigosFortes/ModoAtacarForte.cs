@@ -50,7 +50,7 @@ public class ModoAtacarForte : ModoAbstratoForte
 
     void Atacar(InimigoForte obj)
     {
-        VidaPlayer.estaSendoAtacadoX2 = true;
+        VidaPlayer.instancia.LevarDano(20);
 
         obj.laser.SetActive(true);
     }

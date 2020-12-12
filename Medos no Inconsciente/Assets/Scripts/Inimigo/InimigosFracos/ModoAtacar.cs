@@ -45,7 +45,7 @@ public class ModoAtacar : ModoAbstrato
 
     void Atacar(InimigoFraco obj)
     {
-        VidaPlayer.estaSendoAtacadoX1 = true;
+        VidaPlayer.instancia.LevarDano(10);
 
         obj.laser.SetActive(true);
     }

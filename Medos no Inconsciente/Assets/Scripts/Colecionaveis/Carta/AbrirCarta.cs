@@ -11,7 +11,7 @@ public class AbrirCarta : MonoBehaviour
     public GameObject panelCartas;
     public Text[] conteudoCartas;
     private float tempo = 2f;
-    string[] cartasFase1;
+    string[] cartasFase1, cartasFase2, cartasFase3, cartasFase4;
     List<string> lista = new List<string>();
     public string nomeDaCena;
     public AudioSource abriuCarta, fechouCarta;
@@ -31,11 +31,47 @@ public class AbrirCarta : MonoBehaviour
                 lista.Add(cartasFase1[i]);
             }
         }
+        else if (nomeDaCena == "Fase3")
+        {
+            TextAsset fase2 = (TextAsset)Resources.Load("Txt/CartasFase2");
+            cartasFase2 = fase2.text.Split('\n');
+
+            for (int i = 0; i < cartasFase2.Length; i++)
+            {
+                lista.Add(cartasFase2[i]);
+            }
+        }
+        else if (nomeDaCena == "Fase4")
+        {
+            TextAsset fase3 = (TextAsset)Resources.Load("Txt/CartasFase3");
+            cartasFase3 = fase3.text.Split('\n');
+
+            for (int i = 0; i < cartasFase3.Length; i++)
+            {
+                lista.Add(cartasFase3[i]);
+            }
+        }
+        else if (nomeDaCena == "Fase5")
+        {
+            TextAsset fase4 = (TextAsset)Resources.Load("Txt/CartasFase4");
+            cartasFase4 = fase4.text.Split('\n');
+
+            for (int i = 0; i < cartasFase4.Length; i++)
+            {
+                lista.Add(cartasFase4[i]);
+            }
+        }
     }
 
     void Start()
     {
-        if(nomeDaCena == "Fase1")
+        if(nomeDaCena == "Fase2")
+            conteudoCartas[0].text = "15/02/2019 Onde estou?!Não posso ficar aqui! Preciso encontrar minha irmã antes que seja tarde demais...";
+        else if (nomeDaCena == "Fase3")
+            conteudoCartas[0].text = "15/02/2019 Onde estou?!Não posso ficar aqui! Preciso encontrar minha irmã antes que seja tarde demais...";
+        else if (nomeDaCena == "Fase4")
+            conteudoCartas[0].text = "15/02/2019 Onde estou?!Não posso ficar aqui! Preciso encontrar minha irmã antes que seja tarde demais...";
+        else if (nomeDaCena == "Fase5")
             conteudoCartas[0].text = "15/02/2019 Onde estou?!Não posso ficar aqui! Preciso encontrar minha irmã antes que seja tarde demais...";
 
         else

@@ -59,9 +59,9 @@ public class Alvo : MonoBehaviour
 
     void Morte()
     {
-        VidaPlayer.inimigo--;
+        VidaPlayer.instancia.inimigo--;
         morte.Play();
-        if(VidaPlayer.inimigo <= 0)
+        if(VidaPlayer.instancia.inimigo <= 0)
         {
             pausarMusicaAntes.Pause();
             musicaDepoisMorteInimigo.Play();

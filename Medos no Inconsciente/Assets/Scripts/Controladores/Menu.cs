@@ -57,8 +57,6 @@ public class Menu : MonoBehaviour
     public void CarregarMenu()
     {
         Time.timeScale = 1f;
-        if (SceneManager.GetActiveScene().name == "Fase1")
-            DeletarKeysFase1();
 
         Carregamento.cenaACarregar = "Menu";
         SceneManager.LoadScene("Carregamento");
@@ -70,21 +68,9 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Carregamento");
     }
 
-    //Deletar keys
-    public void DeletarKeysFase1()
-    {
-        PlayerPrefs.DeleteKey("PegouCarta1");
-        PlayerPrefs.DeleteKey("PegouCarta2");
-        PlayerPrefs.DeleteKey("PegouCarta3");
-        PlayerPrefs.DeleteKey("PegouCarta4");
-        PlayerPrefs.DeleteKey("PegouCarta5");
-    }
-
     //Carregar fases
     public void CarregarFase1()
     {
-        DeletarKeysFase1();
-
         Carregamento.cenaACarregar = "Fase1";
         SceneManager.LoadScene("Carregamento");
     }
@@ -101,6 +87,11 @@ public class Menu : MonoBehaviour
     public void CarregarFase4()
     {
         Carregamento.cenaACarregar = "Fase4";
+        SceneManager.LoadScene("Carregamento");
+    }
+    public void CarregarFase5()
+    {
+        Carregamento.cenaACarregar = "Fase5";
         SceneManager.LoadScene("Carregamento");
     }
 

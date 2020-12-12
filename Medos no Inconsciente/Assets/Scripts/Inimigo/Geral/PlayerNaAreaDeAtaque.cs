@@ -21,13 +21,13 @@ public class PlayerNaAreaDeAtaque : MonoBehaviour
         }
 
 
-        if (inimigosFortes != null)
+        if (inimigosFortes.Length > 0)
         {
             if (other.gameObject.CompareTag("Player"))
             {
                 for (int i = 0; i < inimigosFracos.Length; i++)
                 {
-                    inimigosFortes[i].GetComponent<InimigoFraco>().areaAtaque = true;
+                    inimigosFortes[i].GetComponent<InimigoForte>().areaAtaque = true;
                 }
             }
         }

@@ -14,7 +14,6 @@ public class Caixa : MonoBehaviour
 
     public void Destruir()
     {
-        Debug.Log("Caixa");
         Destroy(caixa);
     }
 }

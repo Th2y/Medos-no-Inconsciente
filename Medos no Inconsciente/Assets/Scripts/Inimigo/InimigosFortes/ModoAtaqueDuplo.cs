@@ -53,7 +53,7 @@ public class ModoAtaqueDuplo : ModoAbstratoForte
 
     void Atacar(InimigoForte obj)
     {
-        VidaPlayer.estaSendoAtacadoX2 = true;
+        VidaPlayer.instancia.LevarDano(15);
 
         obj.laser.SetActive(true);
     }

@@ -7,20 +7,25 @@ public class VidaPlayer : MonoBehaviour
 {
     public int vidaMax = 100;
     public int vidaAtual;
-    public static bool estaSendoAtacadoX1 = false;
-    public static bool estaSendoAtacadoX2 = false;
+    public int inimigo;
+    public bool estaSendoAtacado = false;
 
-    public GameObject ganhou;
-    public static int inimigo;
-    public GameObject[] inimigos;
-    public GameObject perdeu;
-    public VidaSlider vidaSlider;
-    public AudioSource morte;
-
+    private int dano;
     private bool acabou = false;
+    private float tempoFumaca = 1f;
+
+    [SerializeField] private GameObject ganhou;
+    [SerializeField] private GameObject[] inimigos;
+    [SerializeField] private GameObject perdeu;
+    [SerializeField] private VidaSlider vidaSlider;
+    [SerializeField] private AudioSource morte;
+    [SerializeField] private GameObject fumaca;
+
+    public static VidaPlayer instancia;
 
     void Start()
     {
+        instancia = this;
         ganhou.SetActive(false);
         perdeu.SetActive(false);
         vidaAtual = vidaMax;
@@ -34,23 +39,25 @@ public class VidaPlayer : MonoBehaviour
         if (PortaAuto.ganhou)
             Invoke("Ganhou", 5f);
 
-        if (estaSendoAtacadoX1)
+        if (estaSendoAtacado)
         {
-            LevarDanoX1(10);
-            estaSendoAtacadoX1 = false;
+            tempoFumaca -= Time.deltaTime;
+            if(tempoFumaca == 1f)
+                LevarDano(dano);
+            else if(tempoFumaca <= 0)
+            {
+                fumaca.SetActive(false);
+                tempoFumaca = 1f;
+                estaSendoAtacado = false;
+            }
         }
-        if (estaSendoAtacadoX2)
-        {
-            LevarDanoX2(20);
-            estaSendoAtacadoX2 = false;
-        }
+        
         if (vidaAtual <= 0 && !acabou)
         {
             morte.Play();
 
             MouseCursorAparencia.MudarCursor(true);
             perdeu.SetActive(true);
-            Menu.instancia.DeletarKeysFase1();
             acabou = true;
         }
 
@@ -58,16 +65,10 @@ public class VidaPlayer : MonoBehaviour
             ganhou.SetActive(true);
     }
 
-    public void LevarDanoX1(int dano)
+    public void LevarDano(int dano)
     {
-        estaSendoAtacadoX1 = true;
-        vidaAtual -= dano;
-        vidaSlider.EscolherVida(vidaAtual);
-    }
-
-    public void LevarDanoX2(int dano)
-    {
-        estaSendoAtacadoX2 = true;
+        estaSendoAtacado = true;
+        fumaca.SetActive(true);
         vidaAtual -= dano;
         vidaSlider.EscolherVida(vidaAtual);
     }

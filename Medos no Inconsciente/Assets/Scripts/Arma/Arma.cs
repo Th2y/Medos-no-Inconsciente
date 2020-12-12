@@ -41,23 +41,16 @@ public class Arma : MonoBehaviour
     {
         if (quantidadeBalas > 0)
         { 
-            StopCoroutine("Recarregando");
             recarga.color = azul;
+            StopCoroutine("Recarregando");
+                //Cor da quantidade de munições
             if (quantidadeBalas >= 3)
-            {
-                //Material verde
                 municoes.color = verde;
-            }
             else if (quantidadeBalas >= 2)
-            {
-                //Material amarelo
                 municoes.color = amarelo;
-            }
             else
-            {
-                //Material vermelho
                 municoes.color = vermelho;
-            }
+
             municaoAtiva.SetActive(true);
             recargaAtiva.SetActive(false);
         }
@@ -65,7 +58,6 @@ public class Arma : MonoBehaviour
             recarga.color = amarelo;
 
         balasUsadas = balasGastas;
-
         mostrarTempoRecarga = (int)tempoRecarga;
 
         if (Input.GetButtonUp("Fire1"))
@@ -114,7 +106,6 @@ public class Arma : MonoBehaviour
             Caixa caixa = hit.transform.GetComponent<Caixa>();
             if (caixa != null)
             {
-                Debug.Log("Caixa achada");
                 caixa.Destruir();
                 quantidadeBalas++;
                 balasGastas--;

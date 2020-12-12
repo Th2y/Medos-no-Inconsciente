@@ -25,9 +25,8 @@ public class Tutorial : MonoBehaviour
             Time.timeScale = 0f;
 
         if (estaLendo)
-        {
             Ler();
-        }
+
         if (Input.GetButtonDown("Fire2") && mus)
         {
             fechouCarta.Play();
@@ -80,7 +79,7 @@ public class Tutorial : MonoBehaviour
         mus = true;
     }
 
-    public void Ler()
+    private void Ler()
     {
         if (Input.GetKeyUp(KeyCode.F))
         {
@@ -90,19 +89,19 @@ public class Tutorial : MonoBehaviour
             panelCartas.SetActive(true);
             aviso[1].gameObject.SetActive(true);
             
-            if (a== 1)
+            if (a == 1)
                 conteudoCartas[1].gameObject.SetActive(true);
             else if (a == 2)
                 conteudoCartas[2].gameObject.SetActive(true);
             else if (a == 3)
                 conteudoCartas[3].gameObject.SetActive(true);
             else if (a == 4)
-                conteudoCartas[4].gameObject.SetActive(true);
-            else if (a == 5)
             {
-                conteudoCartas[5].gameObject.SetActive(true);
+                conteudoCartas[4].gameObject.SetActive(true);
                 ultima = true;
             }
+            else if (a == 5)
+                conteudoCartas[5].gameObject.SetActive(true);
 
             estaLendo = false;
 
